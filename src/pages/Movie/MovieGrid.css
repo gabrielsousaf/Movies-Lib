@@ -19,13 +19,16 @@
 }
 
 .movies-container div {
-  width: 30%;
+  width: 23%;
   color: #fff;
   margin-bottom: 2.5rem;
   flex-direction: column;
   justify-content: space-between;
-  background-color: #111;
+  background-color: #1A1A1A;
   padding: 1rem;
+  display: flex;
+  align-items: center;
+  font-family: 'Roboto';
 }
 
 .movies-container div img {
@@ -33,10 +36,15 @@
 }
 
 .movies-container div img,
-.movies-container div h2,
 .movies-container div p {
   margin-bottom: 1rem;
 } 
+
+.movies-container div p {
+  align-self: flex-start;
+  margin-bottom: 1.5rem;
+  font-weight: 300;
+}
 
 .movies-container div svg{
   background-color: transparent;
@@ -48,9 +56,10 @@
   border: 2px solid #F7D354;
   border-radius: 4px;
   color: #000;
-  padding: 0.3rem;
-  align-items: center;
+  padding: 1rem 0.5rem;
   transition: 300ms all ease;
+  text-align: center;
+  justify-content: center;
 }
 
 .movies-container div a:hover {
