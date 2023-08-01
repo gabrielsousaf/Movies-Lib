@@ -48,6 +48,7 @@
   font-family: 'Open Sans', sans-serif;
   text-transform: uppercase;
   overflow: hidden;
+  margin-top: 1rem;
   display: -webkit-box;
   text-overflow: ellipsis;
 }
