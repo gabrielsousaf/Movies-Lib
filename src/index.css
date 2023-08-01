@@ -8,16 +8,12 @@
 }
 
 body{
-  background-color: #000;
+  background-color: #1E1E1E;
   color: #FFF;
 }
 
 a{
   text-decoration: none;
-  color: #F7D354;
-  transition: .5s;
-}
-
-a:hover {
-  color: #b8930c;
+  color: #FFF;
+  transition: 300ms all ease;
 }
