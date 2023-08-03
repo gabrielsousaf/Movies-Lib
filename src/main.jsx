@@ -2,8 +2,9 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-import App from './App.jsx'
 import './index.css'
+
+import App from './App.jsx'
 import Home from './pages/Home/Home.jsx'
 import Movies from './pages/Movie/Movies.jsx'
 import Search from './pages/Search/Search.jsx'

@@ -9,8 +9,8 @@ const Trending = () => {
   const [ theaters, setTheaters ] = useState([])
 
   useEffect(() => {
-    fetchInTheaters().then((trendingMoveis) => {
-      setTheaters(trendingMoveis);
+    fetchInTheaters().then((InTheaters) => {
+      setTheaters(InTheaters);
     })
   }, [])
 
