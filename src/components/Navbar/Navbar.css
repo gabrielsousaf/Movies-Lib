@@ -1,29 +1,67 @@
-#navbar {
+header{
+  position: fixed;
+  width: 100%;
+  right: 0;
+  top: 0;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  background-color: #121212;
+  justify-content: space-between;
+  background: transparent;
+  padding: 15px 2%;
+  z-index: 1000;
+  transition: all ease .35s ease;
 }
 
+#navbar {
+  display: flex;
+} 
+
 #navbar h2 a{
+  margin: 10px;
+  font-size: 18px;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 10px 20px;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  transition: 300ms all ease;
 }
 
-#navbar form{
+#navbar h2 a:hover{
+  border-bottom: 5px solid #5A1899;
+}
+
+#navbar a.active{
+  border-bottom: 5px solid #5A1899 ;
+}
+
+
+header form{
   display: flex;
   gap: .5rem;
 }
 
-#navbar input {
-  padding: .2rem .8rem;
-  border-radius: 4px;
+header input {
+  padding: 0.6rem 3rem;
   border: none;
+  background-color: rgb(59, 59, 59);
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px,
+              rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  opacity: 0.75;
+  font-size: 1.125rem;
+  border-radius: 1rem;
+  color: aliceblue;
+  text-align: center;
+  transition: 300ms all ease;
 }
 
-#navbar form button {
+header input:hover{
+  box-shadow: none;
+  border:5px solid #5A1899;
+}
+
+header form button {
   background-color: #F7D354;
   border: 2px solid #F7D354;
   border-radius: 4px;
@@ -36,7 +74,11 @@
   transition: 300ms all ease;
 }
 
-#navbar form button:hover {
+header form button:hover {
   background-color: transparent;
   color: #f7f354;
+}
+
+header.sticky{
+  background-color: rgba(20, 20, 20, 0.75);
 }

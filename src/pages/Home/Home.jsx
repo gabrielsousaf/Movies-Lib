@@ -6,24 +6,21 @@ import './HomeGrid.css'
 
 
 const Home = () => {
-  const [ topMovies, setTopMoveis ] = useState([])
+  const [ topRatedMoveis, setRatedMoveis ] = useState([])
 
   useEffect(() => {
-    fetchMovies();
+    fetchTopRatedMovies().then((RatedMoveis) => {
+      setRatedMoveis(RatedMoveis);
+    })
   }, [])
-
-  const fetchMovies = async () => {
-    const popularMovies = await fetchTopRatedMovies()
-    setTopMoveis(popularMovies)
-  }
 
   return (
     <div className="container">
-      <h2 className="title">Melhores filmes:</h2>
+      <h2 className="title">Top Rated:</h2>
       <div className="movies-container">
-        {topMovies.length === 0 && <p>Carregando...</p>}
-        {topMovies.length > 0 &&
-          topMovies.map((movie) => 
+        {topRatedMoveis.length === 0 && <p>Loanding...</p>}
+        {topRatedMoveis.length > 0 &&
+          topRatedMoveis.map((movie) => 
           <MovieCard key={movie.id} movie={movie} />
         )}
       </div> 

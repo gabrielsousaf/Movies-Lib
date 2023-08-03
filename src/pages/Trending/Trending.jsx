@@ -6,21 +6,21 @@ import '../Home/HomeGrid.css'
 
 
 const Trending = () => {
-  const [ topMovies, setTopMoveis ] = useState([])
+  const [ TrendingsMovies, setTreandingsMovies ] = useState([])
 
   useEffect(() => {
     fetchTrendingMovies().then((trendingMoveis) => {
-      setTopMoveis(trendingMoveis);
+      setTreandingsMovies(trendingMoveis);
     })
   }, [])
 
   return (
     <div className="container">
-      <h2 className="title">Tendencias:</h2>
+      <h2 className="title">Trending:</h2>
       <div className="movies-container">
-        {topMovies.length === 0 && <p>Carregando...</p>}
-        {topMovies.length > 0 &&
-          topMovies.map((movie) => 
+        {TrendingsMovies.length === 0 && <p>Loanding...</p>}
+        {TrendingsMovies.length > 0 &&
+          TrendingsMovies.map((movie) => 
           <MovieCard key={movie.id} movie={movie} />
         )}
       </div> 
