@@ -12,6 +12,27 @@ header{
   transition: all ease .35s ease;
 }
 
+.hamburguer {
+  display: none;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.hamburguer-line {
+  width: 100%;
+  font-size: 24px;
+  height: 20px;
+  color: #fff;
+  margin: 6px 0;
+  transition: all 0.3s ease;
+}
+
+.hamburguer.active .hamburguer-line {
+  background-color: #fff;
+}
+
+
 #navbar {
   display: flex;
 } 
@@ -82,3 +103,42 @@ header form button:hover {
 header.sticky{
   background-color: rgba(20, 20, 20, 0.75);
 }
+
+@media (max-width: 1024px) {
+  #navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #141414;
+    padding: 1rem;
+    position: absolute;
+    top: -700px;
+    left: 0;
+    right: 0;
+    transition: all .40s ease;
+  }
+
+  #navbar.show {
+    top: 100%;
+  }
+
+  .hamburguer {
+    display: block;
+  }
+
+  header input{
+    width: 100%;
+  }
+}
+
+@media(max-width: 450px){
+  header input{
+    padding: .6rem 2rem;
+  }
+}
+
+
+
+
+
+
+

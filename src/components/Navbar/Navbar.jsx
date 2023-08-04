@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react"
 
 import { NavLink, useLocation } from "react-router-dom"
-import { BiSearchAlt2 } from "react-icons/bi"
+import { BiSearchAlt2, BiAlignJustify } from "react-icons/bi"
 
 import './Navbar.css'
 
 const Navbar = () => {
   const [isSticky, setIsSticky] = useState(false);
   const location = useLocation();
+  const [showMenu, setShowMenu] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,23 +22,47 @@ const Navbar = () => {
     }
   }, []);
 
+
+  useEffect(() => {
+    const handleScrollToClose = () => {
+      if (showMenu) {
+        setShowMenu(false);
+      }
+    }
+
+    window.addEventListener('scroll', handleScrollToClose);
+
+    return () => {
+      window.removeEventListener('scroll', handleScrollToClose);
+    }
+  }, [showMenu]);
+  
+
+  const handleMenuToggle = () => {
+    setShowMenu((prevState) => !prevState)
+  }
+
   return (
     <header className={isSticky ? 'sticky' : ''}>
-      <nav id='navbar'>
+      <button className="hamburguer" onClick={handleMenuToggle}>
+        <BiAlignJustify className={`hamburguer-line ${showMenu ? 'active' : ''}`} />
+      </button>
+      
+      <nav id='navbar' className={showMenu ? 'show' : ''}>
         <h2>
           <NavLink
             to="/"
             activeClassName="active"
             exact>
-              Top Rated
+            Top Rated
           </NavLink>
         </h2>
 
         <h2>
           <NavLink
             to="/popular"
-            activeClassName="active"> 
-              Popular
+            activeClassName="active">
+            Popular
           </NavLink>
         </h2>
 
