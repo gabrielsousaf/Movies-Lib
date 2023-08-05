@@ -1,14 +1,17 @@
 import { useEffect, useState } from "react"
 
-import { NavLink, useLocation } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 import { BiSearchAlt2, BiAlignJustify } from "react-icons/bi"
 
 import './Navbar.css'
 
 const Navbar = () => {
   const [isSticky, setIsSticky] = useState(false);
-  const location = useLocation();
   const [showMenu, setShowMenu] = useState(false);
+
+  const [search, setSearch] = useState("")
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,10 +39,21 @@ const Navbar = () => {
       window.removeEventListener('scroll', handleScrollToClose);
     }
   }, [showMenu]);
-  
+
 
   const handleMenuToggle = () => {
     setShowMenu((prevState) => !prevState)
+  }
+
+  
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!search) return;
+
+    navigate(`/search?q=${search}`, { replace: true});
+    setSearch("");
   }
 
   return (
@@ -54,6 +68,14 @@ const Navbar = () => {
             to="/"
             activeClassName="active"
             exact>
+            Home
+          </NavLink>
+        </h2>
+
+        <h2>
+          <NavLink
+            to="/top-rated"
+            activeClassName="active">
             Top Rated
           </NavLink>
         </h2>
@@ -75,8 +97,13 @@ const Navbar = () => {
         </h2>
       </nav>
 
-      <form>
-        <input type="text" placeholder="Search movies..." />
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Search movies..."
+          onChange={(e) => setSearch(e.target.value)}
+          value={search}   
+        />
         <button type="submit"> <BiSearchAlt2 /> </button>
       </form>
     </header>

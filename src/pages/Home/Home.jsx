@@ -1,32 +1,31 @@
-import { useState, useEffect } from "react";
-import MovieCard from "../../components/MovieCard/MovieCard";
-import { fetchTopRatedMovies } from "../../services/api";
-
-import './HomeGrid.css'
-
+import './Home.css'
 
 const Home = () => {
-  const [ topRatedMoveis, setRatedMoveis ] = useState([])
-
-  useEffect(() => {
-    fetchTopRatedMovies().then((RatedMoveis) => {
-      setRatedMoveis(RatedMoveis);
-    })
-  }, [])
-
   return (
-    <div className="container">
-      <h2 className="title">Top Rated:</h2>
-      <div className="movies-container">
-        {topRatedMoveis.length === 0 && <p>Loanding...</p>}
-        {topRatedMoveis.length > 0 &&
-          topRatedMoveis.map((movie) => 
-          <MovieCard key={movie.id} movie={movie} />
-        )}
-      </div> 
-    </div>
+    <div className='container-home'>
+      <div>
+        <div>
+          <h2>Trending Today</h2>
+          <h2>Botãos</h2>
+        </div>
+        <div>
+          <h1>images</h1>
+        </div>
+      </div>
 
+      <div>
+        <div>
+          <h2>Now In Theaters</h2>
+          <h2>Botãos</h2>
+        </div>
+        <div>
+          <h1>images</h1>
+        </div>
+      </div>
+
+      <h2 className='title'>Home</h2>
+    </div>
   )
 }
 
-export default Home
+export default Home;

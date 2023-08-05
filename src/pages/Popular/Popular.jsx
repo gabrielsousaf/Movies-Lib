@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import MovieCard from "../../components/MovieCard/MovieCard"
 import { fetchPopularMovies } from "../../services/api"
 
-import '../Home/HomeGrid.css'
+import '../Top_Rated/Top_Rated.css'
 
 
 const Popular = () => {

@@ -5,7 +5,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './index.css'
 
 import App from './App.jsx'
+
 import Home from './pages/Home/Home.jsx'
+import TopRated from './pages/Top_Rated/Top_Rated'
 import Movies from './pages/Movie/Movies.jsx'
 import Search from './pages/Search/Search.jsx'
 import Popular from './pages/Popular/Popular.jsx'
@@ -18,6 +20,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Routes>
         <Route element={<App />}>
           <Route path='/' element={<Home />} />
+          <Route path='/top-rated' element={<TopRated />} />
           <Route path='/popular' element={<Popular />} />
           <Route path='/trending' element={<Trending />} />
           <Route path='/in-theaters' element={<Theaters />} />
@@ -26,5 +29,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         </Route>
       </Routes>
     </BrowserRouter>
-  </React.StrictMode>,
+  </React.StrictMode>
 )

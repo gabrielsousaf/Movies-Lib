@@ -1,22 +1,26 @@
 import axios from "axios";
 
-const api = axios.create({
+export const api = axios.create({
   baseURL: "https://api.themoviedb.org/3/movie/",
 })
 
-const api_trending = axios.create({
+export const api_trending = axios.create({
   baseURL: "https://api.themoviedb.org/3/trending/",
 })
 
-const apiKey = "86a78313a0e0b982cbb7de56b7620574";
+export const apiKey = "86a78313a0e0b982cbb7de56b7620574";
 
 export const searchApi = axios.create({
-  baseURL:"https://api.themoviedb.org/3/search/movie/"
+  baseURL:"https://api.themoviedb.org/3/search/movie"
 })
 
 export const imgApi = axios.create({
   baseURL: "https://image.tmdb.org/t/p/w500/"
 })
+
+
+
+
 
 export const fetchTopRatedMovies = async () => {
   try {
@@ -71,6 +75,7 @@ export const fetchInTheaters = async () => {
         api_key: apiKey,
       }
     });
+
     return response.data.results;
   }
   catch (error) {
@@ -79,5 +84,26 @@ export const fetchInTheaters = async () => {
   }
 }
 
-export default api;
+
+export const searchMovies = async (query) => {
+  try {
+    const response = await searchApi.get("", {
+      params: {
+        api_key: apiKey,
+        query
+      },
+    });
+
+    console.log("Reponse data:", response.data)
+    console.log("Results:", response.data.results)
+
+    return response.data.results;
+  }
+  catch (error) {
+    console.error("Error fetching search movies:", error);
+    console.log("ta errado merda")
+    return [];
+  }
+}
+
 

@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+.container-home{
+  padding-top: 5rem;
+}
+
+.container-home .title{
+  font-size: 3rem;
+  padding-top: 20px;
+  margin-left: 4%;
+  font-weight: 900;
+  font-family: 'Source Sans 3', sans-serif;
+  text-transform: uppercase;
+}
