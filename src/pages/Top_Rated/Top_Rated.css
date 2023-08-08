@@ -94,5 +94,16 @@
   }
 }
 
+@media (max-width: 600px){
+
+  .movies-container{
+    justify-content: center;
+  }
+
+  .movies-container div{
+    width: 80%;
+  }
+}
+
 
 
