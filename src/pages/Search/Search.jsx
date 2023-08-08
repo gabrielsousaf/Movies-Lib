@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import MovieCard from "../../components/MovieCard/MovieCard";
-import { searchMovies } from "../../services/api";
+import { searchMovies } from "../../services/SearchMovies";
 
 import '../Top_Rated/Top_Rated.css'
 

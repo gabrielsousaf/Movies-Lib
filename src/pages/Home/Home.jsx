@@ -4,7 +4,8 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import MovieCard from "../../components/MovieCard/MovieCard";
-import { fetchTrendingMovies, fetchInTheaters } from "../../services/api"; // Importando as duas funções de API
+import { fetchInTheaters } from "../../services/TheatersMovies"; // Importando as duas funções de API
+import { fetchTrendingMovies } from "../../services/TrendingMovies"; // Importando as duas funções de API
 
 import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
 

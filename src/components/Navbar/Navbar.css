@@ -42,7 +42,7 @@ header{
   font-size: 18px;
   font-weight: 800;
   text-transform: uppercase;
-  padding: 10px 20px;
+  padding: 1px 15px;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -63,7 +63,7 @@ header form{
   gap: .5rem;
 }
 
-header input {
+header form input {
   padding: 0.6rem 3rem;
   border: none;
   background-color: rgb(59, 59, 59);
@@ -77,14 +77,14 @@ header input {
   transition: 300ms all ease;
 }
 
-header input:hover{
+header form input:hover{
   box-shadow: none;
   border:5px solid #5A1899;
 }
 
 
 header.sticky{
-  background-color: rgba(20, 20, 20, 0.75);
+  background: rgba(20, 20, 20, 0.75);
 }
 
 @media (max-width: 1024px) {
@@ -108,13 +108,17 @@ header.sticky{
     display: block;
   }
 
-  header input{
+  #navbar h2 a{
+    padding: 15px 20px;
+  }
+
+  header form input{
     width: 100%;
   }
 }
 
 @media(max-width: 450px){
-  header input{
+  header form input{
     padding: .6rem 2rem;
   }
 }

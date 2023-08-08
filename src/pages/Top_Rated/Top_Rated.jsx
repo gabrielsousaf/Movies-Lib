@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import MovieCard from "../../components/MovieCard/MovieCard";
-import { fetchTopRatedMovies } from "../../services/api";
+import { fetchTopRatedMovies } from "../../services/TopMovies";
 import { BiRightArrowAlt, BiLeftArrowAlt } from 'react-icons/bi'
 
 import './Top_Rated.css'

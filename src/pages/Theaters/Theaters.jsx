@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import MovieCard from "../../components/MovieCard/MovieCard";
-import { fetchInTheaters } from "../../services/api";
+import { fetchInTheaters } from "../../services/TheatersMovies";
 
 import { BiRightArrowAlt, BiLeftArrowAlt } from 'react-icons/bi'
 
