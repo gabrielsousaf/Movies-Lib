@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 
 import { NavLink, useNavigate } from "react-router-dom"
-import { BiSearchAlt2, BiAlignJustify } from "react-icons/bi"
+import { BiAlignJustify } from "react-icons/bi"
 
 import './Navbar.css'
 
@@ -104,7 +104,6 @@ const Navbar = () => {
           onChange={(e) => setSearch(e.target.value)}
           value={search}   
         />
-        <button type="submit"> <BiSearchAlt2 /> </button>
       </form>
     </header>
   )

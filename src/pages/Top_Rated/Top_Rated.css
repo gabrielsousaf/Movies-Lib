@@ -59,8 +59,33 @@
   text-overflow: ellipsis;
 }
 
+
+
 .pagination{
-  background-color: red;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.pagination .page{
+  display: flex;
+  align-items: center;
+  background-color: #3B3B3B;
+  text-align: center;
+  cursor: pointer;
+  padding: 4px 12px;
+  border-radius: 16px;
+  transition: 300ms all ease;
+}
+
+.pagination .active{
+  cursor: default;
+}
+
+
+.pagination .page:hover{
+  background-color: #5A1899;
 }
 
 @media (max-width:1200px){

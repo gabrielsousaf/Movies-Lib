@@ -22,65 +22,69 @@ export const imgApi = axios.create({
 
 
 
-export const fetchTopRatedMovies = async () => {
+export const fetchTopRatedMovies = async (page) => {
   try {
     const response = await api.get("top_rated", {
       params: {
         api_key: apiKey,
+        page,
       }
     });
-    return response.data.results;
+    return response.data;
   }
   catch (error) {
     console.error("Error fetching popular movies:", error);
-    return[]
+    return { results: [], total_pages: 1}
   }
 }
 
 
-export const fetchPopularMovies = async () => {
+export const fetchPopularMovies = async (page) => {
   try{
     const response = await api.get("popular", {
       params: {
         api_key: apiKey,
-      }
+        page,
+      },
     });
-    return response.data.results;
+    return response.data;
   }
   catch (error) {
     console.error("Error fetching popular movies:", error);
-    return[]
+    return { results: [], total_pages: 1}
   }
 }
 
-export const fetchTrendingMovies = async () => {
+export const fetchTrendingMovies = async (page) => {
   try{
     const response = await api_trending.get("movie/day", {
       params: {
         api_key: apiKey,
+        page,
       }
     });
-    return response.data.results;
+    return response.data;
   }
   catch (error) {
     console.error("Error fetching trending movies:", error);
-    return[]
+    return { results: [], total_pages: 1}
   }
 }
 
-export const fetchInTheaters = async () => {
+export const fetchInTheaters = async (page) => {
   try{
     const response = await api.get("now_playing", {
       params: {
         api_key: apiKey,
+        page,
       }
     });
 
-    return response.data.results;
+    return response.data;
   }
   catch (error) {
     console.error("Error fetching Theaters movies:", error);
-    return[]
+    return { results: [], total_pages: 1}
   }
 }
 

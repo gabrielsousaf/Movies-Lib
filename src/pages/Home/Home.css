@@ -1,14 +1,93 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
 .container-home{
-  padding-top: 5rem;
+  padding-top: 6rem;
 }
 
-.container-home .title{
-  font-size: 3rem;
-  padding-top: 20px;
-  margin-left: 4%;
-  font-weight: 900;
-  font-family: 'Source Sans 3', sans-serif;
+
+.container-context{
+  margin: 2rem;
+}
+
+.container-context .text{
+  display: flex;
+  justify-content: space-between;
+}
+
+.container-context .text h2{
   text-transform: uppercase;
+  font-family: 'Source Sans 3', sans-serif;
+  font-weight: 900;
+  font-size: 2.5rem;
+  margin-left: 1rem;
+}
+
+.container-context .text .buttons{
+  margin-right: 8px;
+}
+
+.container-context .text .buttons span{
+  background-color: rgb(59, 59, 59);
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 1.2rem;
+  margin-right: 1rem;
+  align-items: center;
+  transition: 300ms all ease;
+  cursor: pointer;
+}
+
+.container-context .text .buttons span:hover{
+  background-color: #5A189A;
+}
+
+.image{
+  text-align: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.image .movie-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 75%;
+  margin: 1rem;
+}
+
+.image .movie-card .details{
+  justify-content: center;
+  text-align: center;
+}
+
+/* .image .movie-card{
+  background-color: aqua;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  width: 90%;
+  height: 75%;
+  margin-top: 1rem;
+  flex-direction: column;
+  align-items: center;
+} */
+
+.image .movie-card img{
+  width: 100%;
+  border-radius: 1rem;
+  transition: 300ms all ease;
+} 
+
+.image .movie-card img:hover{
+  border: 5px solid #5A189A;
+}
+
+.image .movie-card h2{
+  text-align: center;
+  margin-top: 1rem;
+  text-transform: uppercase;
+  font-family: 'Source Sans 3', sans-serif;
+  font-weight: 400;
+  font-size: 1.2rem;
 }
