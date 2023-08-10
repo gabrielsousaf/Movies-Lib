@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import MovieCard from "../../components/MovieCard/MovieCard";
 import { fetchTopRatedMovies } from "../../services/TopMovies";
 import { BiRightArrowAlt, BiLeftArrowAlt } from 'react-icons/bi'
+import { handleNextPage, handlePrevPage } from "../../components/Pagination/Pagination"
+
 
 import './Top_Rated.css'
 
@@ -19,17 +21,6 @@ const Home = () => {
     })
   }, [currentPage]);
 
-  const handleNextPage = () => {
-    if (currentPage < totalPages) {
-      setCurrentPage(currentPage + 1)
-    }
-  }
-
-  const handlePrevPage = () => {
-    if (currentPage > 1) {
-      setCurrentPage(currentPage - 1)
-    }
-  }
 
   return (
     <div className="container">
@@ -44,7 +35,7 @@ const Home = () => {
 
       <div className="pagination">
         <span 
-          onClick={handlePrevPage} 
+          onClick={() => handlePrevPage(currentPage, setCurrentPage)} 
           disabled={currentPage === 1}
           className={currentPage === 1 ? "not-page" : "page"}  
         >
@@ -53,7 +44,7 @@ const Home = () => {
         </span>
         <p>Page {currentPage}</p>
         <span 
-          onClick={handleNextPage}
+          onClick={() => handleNextPage(currentPage, totalPages, setCurrentPage)}
           disabled={currentPage === totalPages}
           className="page"
         >

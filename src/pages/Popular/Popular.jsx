@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import MovieCard from "../../components/MovieCard/MovieCard"
 import { fetchPopularMovies } from "../../services/PopularMovies"
+import { handleNextPage, handlePrevPage } from "../../components/Pagination/Pagination"
 
 import { BiRightArrowAlt, BiLeftArrowAlt } from 'react-icons/bi'
 
@@ -19,17 +20,6 @@ const Popular = () => {
     })
   }, [currentPage]);
 
-  const handleNextPage = () => {
-    if (currentPage < totalPages) {
-      setCurrentPage(currentPage + 1)
-    }
-  }
-
-  const handlePrevPage = () => {
-    if (currentPage > 1) {
-      setCurrentPage(currentPage - 1)
-    }
-  }
 
   return (
     <div className="container">
@@ -44,7 +34,7 @@ const Popular = () => {
 
       <div className="pagination">
         <span 
-          onClick={handlePrevPage} 
+          onClick={() => handlePrevPage(currentPage, setCurrentPage)}
           disabled={currentPage === 1}
           className={currentPage === 1 ? "not-page" : "page"}  
         >
@@ -53,7 +43,7 @@ const Popular = () => {
         </span>
         <p>Page {currentPage}</p>
         <span 
-          onClick={handleNextPage}
+          onClick={() => handleNextPage(currentPage, totalPages, setCurrentPage)}
           disabled={currentPage === totalPages}
           className="page"
         >

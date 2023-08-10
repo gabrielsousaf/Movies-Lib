@@ -34,7 +34,7 @@ const Search = () => {
 
   return (
     <div className="container">
-      <h2 className="title">Resultados para: {searchQuery}</h2>
+      <h2 className="title">Search Results for: {searchQuery}</h2>
       <div className="movies-container">
         {loading ? (
           <p>Loading...</p>
@@ -44,6 +44,7 @@ const Search = () => {
           movies.map((movie) => <MovieCard key={movie.id} movie={movie} />)
         )}
       </div>
+      
     </div>
   );
 };

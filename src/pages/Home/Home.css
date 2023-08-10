@@ -61,18 +61,6 @@
   text-align: center;
 }
 
-/* .image .movie-card{
-  background-color: aqua;
-  justify-content: center;
-  text-align: center;
-  display: flex;
-  width: 90%;
-  height: 75%;
-  margin-top: 1rem;
-  flex-direction: column;
-  align-items: center;
-} */
-
 .image .movie-card img{
   width: 100%;
   border-radius: 1rem;
@@ -90,4 +78,11 @@
   font-family: 'Source Sans 3', sans-serif;
   font-weight: 400;
   font-size: 1.2rem;
+}
+
+@media(max-width: 600px){
+
+  .container-context .text h2{
+    font-size:1.2rem ;
+  }
 }
