@@ -4,11 +4,12 @@ import "slick-carousel/slick/slick-theme.css";
 
 import { useState, useEffect } from "react";
 
-import MovieCard from "../../components/MovieCard/MovieCard";
+import { useCarousel } from '../../components/Carousel/CarouselFunction';
+import { carouselSettings, carouselSettings2 } from '../../components/Carousel/Carousel';
+import { MovieCard } from "../../components/MovieCard/MovieCard";
+
 import { fetchInTheaters } from "../../services/TheatersMovies"; 
 import { fetchTrendingMovies } from "../../services/TrendingMovies";
-import { carouselSettings, carouselSettings2 } from '../../components/Carousel/Carousel';
-import { useCarousel } from '../../components/Carousel/CarouselFunction';
 
 
 import { BiChevronLeft, BiChevronRight } from "react-icons/bi";

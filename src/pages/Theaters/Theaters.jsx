@@ -1,11 +1,11 @@
+import '../Top_Rated/style.css'
+
 import { useState, useEffect } from "react";
-import MovieCard from "../../components/MovieCard/MovieCard";
+import {MovieCard} from "../../components/MovieCard/MovieCard";
 import { fetchInTheaters } from "../../services/TheatersMovies";
 import { handleNextPage, handlePrevPage } from "../../components/Pagination/Pagination"
 
 import { BiRightArrowAlt, BiLeftArrowAlt } from 'react-icons/bi'
-
-import '../Top_Rated/Top_Rated.css'
 
 
 
@@ -42,7 +42,9 @@ const Trending = () => {
           <BiLeftArrowAlt /> 
           Previous Results
         </span>
+
         <p>Page {currentPage}</p>
+        
         <span 
           onClick={() => handleNextPage(currentPage, totalPages, setCurrentPage)}
           disabled={currentPage === totalPages}

@@ -17,3 +17,8 @@ export const searchApi = axios.create({
 export const imgApi = axios.create({
   baseURL: "https://image.tmdb.org/t/p/w500/"
 })
+
+
+export const imagesMovie = axios.create({
+  baseURL: "https://api.themoviedb.org/3/movie/"
+})  

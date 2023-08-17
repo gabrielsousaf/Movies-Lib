@@ -1,11 +1,10 @@
+import './style.css'
+
 import { useState, useEffect } from "react";
-import MovieCard from "../../components/MovieCard/MovieCard";
+import {MovieCard} from "../../components/MovieCard/MovieCard";
 import { fetchTopRatedMovies } from "../../services/TopMovies";
 import { BiRightArrowAlt, BiLeftArrowAlt } from 'react-icons/bi'
 import { handleNextPage, handlePrevPage } from "../../components/Pagination/Pagination"
-
-
-import './Top_Rated.css'
 
 
 const Home = () => {

@@ -1,11 +1,12 @@
+import '../Top_Rated/style.css'
+
 import { useState, useEffect } from "react"
-import MovieCard from "../../components/MovieCard/MovieCard"
-import { fetchPopularMovies } from "../../services/PopularMovies"
+import {MovieCard} from "../../components/MovieCard/MovieCard"
 import { handleNextPage, handlePrevPage } from "../../components/Pagination/Pagination"
 
-import { BiRightArrowAlt, BiLeftArrowAlt } from 'react-icons/bi'
+import { fetchPopularMovies } from "../../services/PopularMovies"
 
-import '../Top_Rated/Top_Rated.css'
+import { BiRightArrowAlt, BiLeftArrowAlt } from 'react-icons/bi'
 
 
 const Popular = () => {
@@ -41,7 +42,9 @@ const Popular = () => {
           <BiLeftArrowAlt /> 
           Previous Results
         </span>
+
         <p>Page {currentPage}</p>
+
         <span 
           onClick={() => handleNextPage(currentPage, totalPages, setCurrentPage)}
           disabled={currentPage === totalPages}
@@ -49,6 +52,7 @@ const Popular = () => {
         >
           More Results <BiRightArrowAlt /> 
         </span>
+        
       </div>
     </div>
   )

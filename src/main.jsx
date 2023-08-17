@@ -8,7 +8,7 @@ import App from './App.jsx'
 
 import Home from './pages/Home/Home.jsx'
 import TopRated from './pages/Top_Rated/Top_Rated'
-import Movies from './pages/Movie/Movies.jsx'
+import Movies from './pages/Movie/Movies'
 import Search from './pages/Search/Search.jsx'
 import Popular from './pages/Popular/Popular.jsx'
 import Trending from './pages/Trending/Trending.jsx'
