@@ -6,17 +6,17 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { imgApi } from '../../services/api';
-import { fetchMovieDetails} from '../../services/Movie'; 
+import { fetchMovieDetails } from '../../services/Movie';
 import { fetchMovieCast } from '../../services/MovieCast';
 import { fetchRecommendedMovies } from '../../services/RecommendedMovies';
 import { fetchImages } from '../../services/Images';
 
-import { carouselSettingsCast, carouselSettingsRecomended, carouselSettingsGalery} from '../../components/Carousel/Carousel';
+import { carouselSettingsCast, carouselSettingsRecomended, carouselSettingsGalery } from '../../components/Carousel/Carousel';
 import { useCarousel } from '../../components/Carousel/CarouselFunction';
 
 import { MovieRecomend, CastCard, MovieImageGallery } from '../../components/MovieCard/MovieCard'
 
-import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
+import { BiChevronLeft, BiChevronRight, BiSolidStar } from "react-icons/bi";
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -30,13 +30,13 @@ const MovieDetails = () => {
   const { sliderRef, nextSlide, prevSlide, Carousel } = useCarousel(carouselSettingsRecomended);
   const { sliderRef: sliderRef2, Carousel: Carousel2 } = useCarousel(carouselSettingsCast);
   const { sliderRef: gallerySliderRef, Carousel: GalleryCarousel } = useCarousel(carouselSettingsGalery);
-  
+
   useEffect(() => {
     fetchMovieDetails(id).then((details) => {
       setMovieDetails(details);
       setMovieGenres(details.genres)
     });
-    
+
     fetchMovieCast(id).then((cast) => {
       setMovieCast(cast)
     });
@@ -56,72 +56,109 @@ const MovieDetails = () => {
   }
 
   const firstImage = gallery.length > 0 ? imgApi.defaults.baseURL + gallery[0].file_path : '';
+  const imageUrl = imgApi.defaults.baseURL + movieDetails.poster_path;
   const durationInHours = Math.floor(movieDetails.runtime / 60);
   const durationInMinutes = movieDetails.runtime % 60;
 
-  
+
   return (
-    <div className="movie-details">
+    <div className="container-movie-details">
 
-      <img src={firstImage} alt={`Image ${firstImage}`}  /> 
-      <h2>{movieDetails.title}</h2>
-      <p>{movieDetails.overview}</p>
-
-      <p>Score: {movieDetails.vote_average}</p>
-      <div className="tags">
-        {movieGenres.map((genre) => (
-          <span key={genre.id} className="tag">
-            {genre.name}
-          </span>
-         ))}
+      <div className='poster'>
+        <img src={firstImage} alt={`Image ${firstImage}`} className='poster-image' />
       </div>
 
-      <p>Year: {movieDetails.release_date.substring(0, 4)}</p>
-      <p>Duration: {durationInHours}h{durationInMinutes}</p>
+      <div className='card-info'>
+        <div className='container-movie'>
+          <div>
+            <img src={imageUrl} alt={`${movieDetails.original_title} Poster`} />
+          </div>
 
-      
-      <div className="recommended-movies">
+          <div className='content-info'>
+            <h1>{movieDetails.title}</h1>
+            <ul>
+              <li><BiSolidStar /> {movieDetails.vote_average} / 10</li>
+              <li>{movieDetails.release_date.substring(0, 4)}</li>
+              <li>{durationInHours}h{durationInMinutes}</li>
+            </ul>
 
-        <div className='buttons'>
-          <span onClick={prevSlide}> <BiChevronLeft /> </span>
-          <span onClick={nextSlide}> <BiChevronRight /> </span>
+            <hr />
+
+            <p className='resume'>{movieDetails.overview}</p>
+
+            <div className="tags">
+              {movieGenres.map((genre) => (
+                <span key={genre.id} className="tag">
+                  {genre.name}
+                </span>
+              ))}
+            </div>
+
+
+          </div>
+
         </div>
 
-        <h2>Recommended:</h2>
-        <Carousel>
-          {recommendedMovies.length === 0 ? (
-            <p>Loading</p>
-          ) : (
-            recommendedMovies.map((movie) => (
-              <MovieRecomend key={movie.id} movie={movie} />
-            ))
-          )}
-        </Carousel>
-
-      </div>  
-
-
-
-      <div className="movie-cast">
-        <Carousel2>
-          {movieCast.cast &&
-            movieCast.cast.slice(0, 20).map((actor, index) => (
-              <CastCard key={index} actor={actor} />
-          ))}
-        </Carousel2>
       </div>
 
 
 
-      <GalleryCarousel>
-        {gallery.map((image) => (
-          <MovieImageGallery key={image.id} image={image}  />
-        ))}
-      </GalleryCarousel>
+      <div className="recommended-movies">
 
+        <div className='container-movies'>
+          <div className='text'>
+            <h2>Recommended</h2>
+            <div className='buttons'>
+              <span onClick={prevSlide}> <BiChevronLeft /> </span>
+              <span onClick={nextSlide}> <BiChevronRight /> </span>
+            </div>
+          </div>
 
+          <div className='image'>
+            <Carousel>
+              {recommendedMovies.length === 0 ? (
+                <p>Loading</p>
+              ) : (
+                recommendedMovies.map((movie) => (
+                  <MovieRecomend key={movie.id} movie={movie} />
+                ))
+              )}
+            </Carousel>
+          </div>
 
-    
+        </div>
+      </div>
+
+      <div className="container-movies">
+        <div className='text'>
+          <h2>Cast</h2>
+        </div>
+        <div className='image'>
+
+          <Carousel2>
+            {movieCast.cast &&
+              movieCast.cast.slice(0, 20).map((actor, index) => (
+                <CastCard key={index} actor={actor} />
+              ))}
+          </Carousel2>
+        </div>
+
+      </div>
+
+      <div className='container-movies'>
+        <div className='text'>
+          <h2>gallery</h2>
+        </div>
+
+        <div className='image'>
+          <GalleryCarousel>
+            {gallery.map((image) => (
+              <MovieImageGallery key={image.id} image={image} />
+            ))}
+          </GalleryCarousel>
+        </div>
+
+      </div>
     </div>
   );
 };

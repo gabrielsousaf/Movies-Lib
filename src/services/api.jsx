@@ -15,7 +15,7 @@ export const searchApi = axios.create({
 })
 
 export const imgApi = axios.create({
-  baseURL: "https://image.tmdb.org/t/p/w500/"
+  baseURL: "https://image.tmdb.org/t/p/w1280/"
 })
 
 

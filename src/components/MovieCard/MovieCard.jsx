@@ -15,7 +15,6 @@ export const MovieCard = ({ movie }) => {
 };
 
 
-
 export const MovieRecomend = ({ movie }) => {
   const imageUrl = imgApi.defaults.baseURL + movie.poster_path;
 
@@ -31,11 +30,14 @@ export const MovieRecomend = ({ movie }) => {
 
 export const CastCard = ({ actor }) => {
   return (
-    <div className="cast-card">
-      <img 
-        src={`https://image.tmdb.org/t/p/w200/${actor.profile_path}`} 
-        alt={actor.name} 
-      />
+    <div className="movie-card">
+      <div className="details">
+        <img 
+          src={`https://image.tmdb.org/t/p/w200/${actor.profile_path}`} 
+          alt={actor.name}    
+        />
+      </div>
+
     </div>
   );
 };
@@ -43,11 +45,14 @@ export const CastCard = ({ actor }) => {
 
 export const MovieImageGallery = ({ image }) => {
   return (
-    <div className="image-gallery">
-      <img 
-        src={imgApi.defaults.baseURL + image.file_path} 
-        alt={`Image ${image.id}`} 
-      />
+    <div className="movie-card">
+      <div className="details">
+        <img 
+          src={imgApi.defaults.baseURL + image.file_path} 
+          alt={`Image ${image.id}`} 
+        />
+      </div>
+
     </div>
   );
 };

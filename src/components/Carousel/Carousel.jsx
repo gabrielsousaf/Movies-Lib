@@ -55,8 +55,8 @@ export const carouselSettingsCast = {
   infinite: true,
   arrows: true,
   speed: 500,
-  slidesToShow: 2,
-  slidesToScroll: 2,
+  slidesToShow: 5,
+  slidesToScroll: 5,
   responsive: [
     {
       breakpoint: 900,
@@ -80,8 +80,8 @@ export const carouselSettingsRecomended = {
   infinite: true,
   arrows: false,
   speed: 500,
-  slidesToShow: 2,
-  slidesToScroll: 2,
+  slidesToShow: 5,
+  slidesToScroll: 5,
   responsive: [
     {
       breakpoint: 900,
