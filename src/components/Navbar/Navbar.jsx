@@ -6,24 +6,9 @@ import { BiAlignJustify } from "react-icons/bi"
 import './Navbar.css'
 
 const Navbar = () => {
-  const [isSticky, setIsSticky] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
-
   const [search, setSearch] = useState("")
-
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsSticky(window.scrollY > 0)
-    }
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
-  }, []);
 
 
   useEffect(() => {
@@ -32,13 +17,13 @@ const Navbar = () => {
         setShowMenu(false);
       }
     }
-
     window.addEventListener('scroll', handleScrollToClose);
 
     return () => {
       window.removeEventListener('scroll', handleScrollToClose);
     }
   }, [showMenu]);
+
 
 
   const handleMenuToggle = () => {
@@ -49,15 +34,13 @@ const Navbar = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     if (!search) return;
-
     navigate(`/search?q=${search}`, { replace: true});
     setSearch("");
   }
 
   return (
-    <header className={isSticky ? 'sticky' : ''}>
+    <header className='sticky'>
       <button className="hamburguer" onClick={handleMenuToggle}>
         <BiAlignJustify className={`hamburguer-line ${showMenu ? 'active' : ''}`} />
       </button>

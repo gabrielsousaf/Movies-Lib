@@ -22,7 +22,7 @@ const Home = () => {
 
 
   return (
-    <div className="container">
+    <main className="container">
       <h2 className="title">Top Rated:</h2>
       <div className="movies-container">
         {topRatedMoveis.length === 0 && <p>Loanding...</p>}
@@ -50,7 +50,7 @@ const Home = () => {
           More Results <BiRightArrowAlt /> 
         </span>
       </div>
-    </div>
+    </main>
 
   )
 }

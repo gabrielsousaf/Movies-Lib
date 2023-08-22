@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
+@font-face {
+  font-family:Source-Sans-Pro ;
+  src: url(../../fonts/source-sans-pro.bold.ttf);
+}
 
 *{
   margin: 0;
@@ -7,47 +11,43 @@
   box-sizing: border-box;
 }
 
-@font-face {
-  font-family:Source-Sans-Pro ;
-  src: url(../../fonts/source-sans-pro.bold.ttf);
-}
+
+
 
 .container-movie-details{
   position: relative;
   padding: 0px 5rem 5rem;
 }
 
-.card-info{
-  position:relative;
-  display: flex;
-}
 
+.container-movie-details
 .poster{
   position:absolute;
-  width: 100%;
-  height:50%;
-  left: 0;
+  width: 95%;
+  height:auto;
+  left: 50%;
   top: 0;
   z-index: -1;
   overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-bottom: min(56.25%, 30rem);
-  background-color: red;
-  /* padding: 0px 50px 50px!important; */
+  transform: translateX(-50%);
 
 }
 
-.poster img{
-  background-color: red;
-  /* padding: 0px 20px 50px; */
+.container-movie-details .poster 
+.poster-image{
   position:relative;
-  /* width: 100%; */
-  height: auto;
+  width: 100%;
+  height: 10%;
   object-fit: cover;
   border-radius: 20px;
-  /* padding: 50px; */
+}
+
+
+.container-movie-details 
+.card-info{
+  position:relative;
+  display: flex;
+  justify-content: center;
 }
 
 
@@ -55,7 +55,7 @@
 
 
 
-
+.container-movie-details .card-info
 .container-movie{
   margin-top: 400px;
   position: relative;
@@ -67,18 +67,25 @@
 }
 
 
-.container-movie div img{
+
+.container-movie-details .card-info
+.container-movie .movie-poster 
+img{
   width: 250px ;
   border-radius: 16px;
 }
 
 
+.container-movie-details .card-info
 .content-info{
   padding-top: 1rem;
   padding-left: 2rem;
 }
 
-.content-info h1{
+
+.container-movie-details .card-info
+.content-info .title
+h1{
   text-transform: uppercase;
   font-family: "Source-Sans-Pro", sans-serif;
   font-size: 64px;
@@ -86,20 +93,26 @@
   color: #ffffff;
 }
 
-.content-info ul{
+.container-movie-details .card-info .container-movie
+.content-info .info
+ul{
   display: flex;
   align-items: flex-start;
   margin-top: 1rem;
 }
 
-.content-info ul li:first-child{
+.container-movie-details .card-info
+.content-info .info ul 
+li:first-child{
   list-style: none;
   justify-items: flex-start;
 }
 
-.content-info ul li{
+.container-movie-details .card-info
+.content-info .info ul 
+li{
   margin-right: 1.8rem;
-  font-size: 23px;
+  font-size: 1.6rem;
   font-weight: 700;
   color: #ffffff;
 }
@@ -109,17 +122,25 @@ hr{
   margin-bottom: 1rem;
 }
 
+.container-movie-details .card-info .container-movie
+.content-info .info
 .resume{
   font-size: 1rem;
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
 }
 
+
+.container-movie-details .card-info .container-movie
+.content-info .info
 .tags{
   margin-top: 2rem;
 }
 
-.tags span{
+
+.container-movie-details .card-info .container-movie
+.content-info .info .tags 
+span{
   margin-right: 1rem;
   background-color: #D8D8D8;
   padding: 0.25em 0.75em;
@@ -131,29 +152,36 @@ hr{
 
 
 
-
+.container-movie-details .recommended-movies 
 .container-movies{
   padding-top: 1rem;
 }
 
-.container-movies .text{
+.container-movie-details .recommended-movies .container-movies 
+.text{
   display: flex;
   justify-content: space-between;
 }
 
-.container-movies .text h2{
+.container-movie-details .recommended-movies 
+.container-movies .text 
+h2{
   text-transform: uppercase;
   font-weight: 900;
   font-size: 2.8rem;
   font-family: "Source-Sans-Pro", sans-serif;
 }
 
-.container-movies .text .buttons{
+.container-movie-details .recommended-movies 
+.container-movies .text  
+.buttons{
   display: flex;
   align-items: center;
 }
 
-.container-movies .text .buttons span{
+.container-movie-details .recommended-movies 
+.container-movies .text .buttons 
+span{
   padding: 0.25rem 0.75rem;
   background-color: rgb(59, 59, 59);
   border-radius: 1rem;
@@ -163,7 +191,127 @@ hr{
   cursor: pointer;
 }
 
-.container-movies .text .buttons span:hover{
+.container-movie-details .recommended-movies 
+.container-movies .text .buttons 
+span:hover{
   background-color: #5A189A;
 }
 
+
+
+
+
+
+
+@media (max-width: 1200px) {
+  .container-movie-details .card-info
+  .container-movie{
+    flex-direction: column;
+    align-items: center;
+    
+  }
+
+  .container-movie-details .card-info
+  .content-info{
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0;
+  }
+
+  .container-movie-details .card-info
+  .content-info .title
+  h1{
+    padding: 0;
+    margin-right: 0;
+    font-size: 1.8rem;
+  }
+
+  .container-movie-details .card-info .content-info 
+  .info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .container-movie-details .card-info
+  .content-info .info 
+  ul{
+    justify-content: center;
+  }
+
+  .container-movie-details .card-info
+  .content-info .info ul 
+  li, .resume{
+    font-size: 1rem;
+  }
+
+  .container-movie-details .card-info .container-movie
+  .content-info .info
+  .resume{
+    text-align: left;
+    margin-top:1rem ;
+  }
+}
+
+
+@media(max-width:769px){
+
+
+  .container-movie-details{
+    padding: 20px ;
+  }
+
+
+  .container-movie-details .card-info
+  .container-movie{
+    margin-top: 200px;
+  }
+
+  .container-movie-details .recommended-movies 
+  .container-movies .text h2,
+  .container-movie-details
+  .container-movies .text h2 {
+    font-size: 2rem;
+  }
+
+
+
+  .image img{
+    min-width: 100px;
+  }
+
+
+}
+
+
+
+
+
+
+.image {
+  text-align: center;
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+.image .movie-card{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  margin: 1rem;
+}
+
+.image .movie-card .details{
+  justify-content: center;
+  text-align: center;
+}
+
+.image .movie-card img{
+  width: 100%;
+  border-radius: 1rem;
+  transition: 300ms all ease;
+}

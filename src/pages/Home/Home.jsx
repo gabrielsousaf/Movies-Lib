@@ -35,7 +35,7 @@ const Home = () => {
 
  
   return (
-    <div className='container-home'>
+    <main className='container-home'>
       {/* Carrossel 1 - Trending Today */}
       <div className='container-context'>
         <div className='text'>
@@ -77,7 +77,7 @@ const Home = () => {
           </Carousel2>
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 

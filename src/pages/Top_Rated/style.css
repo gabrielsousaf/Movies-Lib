@@ -14,7 +14,7 @@
   text-transform: uppercase;
 }
 
-.movies-container{
+.container .movies-container{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -24,8 +24,8 @@
 }
 
 
-
-.movies-container div {
+.container .movies-container 
+div {
   width: 25%;
   color: #fff;
   flex-direction: column;
@@ -37,18 +37,21 @@
   font-family: 'Roboto';
 }
 
-.movies-container div img {
+.container .movies-container div 
+img {
   max-width: 100%;
   border-radius: 10%;
   margin-top: 1rem;
   transition: 300ms all ease;
 }
 
-.movies-container div img:hover{
+.container .movies-container div 
+img:hover{
   border:5px solid #5A1899;
 }
 
-.movies-container div h2 {
+.container .movies-container div 
+h2 {
   text-align: center;
   font-size: 1.125rem;
   font-family: 'Open Sans', sans-serif;
@@ -62,7 +65,7 @@
 
 
 
-.pagination{
+.container .pagination{
   display: flex;
   justify-content: space-around;
   font-family: 'Source Sans 3', sans-serif;
@@ -70,7 +73,7 @@
   padding-bottom: 2rem;
 }
 
-.pagination .page{
+.container .pagination .page{
   font-weight: 400;
   display: flex;
   align-items: center;
@@ -82,33 +85,37 @@
   transition: 300ms all ease;
 }
 
-.pagination p{
+.container .pagination p{
   font-weight: 400;
   font-family: 'Source Sans 3', sans-serif;
   font-size: 1.3rem;
 }
 
-.pagination .page:hover{
+.container .pagination 
+.page:hover{
   background-color: #5A1899;
 }
 
-.pagination .not-page{
+.container .pagination 
+.not-page{
   color: rgb(138, 138, 138);
 }
 
 @media (max-width:1200px){
-  .movies-container div{
+  .container .movies-container 
+  div{
     width: 40%;
   }
 }
 
-@media (max-width: 600px){
+@media (max-width: 768px){
 
-  .movies-container{
+  .container.movies-container{
     justify-content: center;
   }
 
-  .movies-container div{
+  .container .movies-container 
+  div{
     width: 80%;
   }
 }

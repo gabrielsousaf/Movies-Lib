@@ -6,20 +6,20 @@ header{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: transparent;
+  background: rgba(20, 20, 20, 0.75);
   padding: 15px 2%;
   z-index: 1000;
   transition: all ease .35s ease;
 }
 
-.hamburguer {
+header .hamburguer {
   display: none;
   cursor: pointer;
   background-color: transparent;
   border: none;
 }
 
-.hamburguer-line {
+header .hamburguer .hamburguer-line {
   width: 100%;
   font-size: 24px;
   height: 20px;
@@ -28,16 +28,16 @@ header{
   transition: all 0.3s ease;
 }
 
-.hamburguer.active .hamburguer-line {
+header .hamburguer .hamburguer.active .hamburguer-line {
   background-color: #fff;
 }
 
 
-#navbar {
+header #navbar {
   display: flex;
 } 
 
-#navbar h2 a{
+ header #navbar h2 a{
   margin: 10px;
   font-size: 18px;
   font-weight: 800;
@@ -49,11 +49,11 @@ header{
   transition: 300ms all ease;
 }
 
-#navbar h2 a:hover{
+header #navbar h2 a:hover{
   border-bottom: 5px solid #5A1899;
 }
 
-#navbar a.active{
+ header #navbar a.active{
   border-bottom: 5px solid #5A1899 ;
 }
 
@@ -83,9 +83,7 @@ header form input:hover{
 }
 
 
-header.sticky{
-  background: rgba(20, 20, 20, 0.75);
-}
+
 
 @media (max-width: 1024px) {
   #navbar {

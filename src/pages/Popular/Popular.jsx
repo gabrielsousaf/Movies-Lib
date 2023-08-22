@@ -23,7 +23,7 @@ const Popular = () => {
 
 
   return (
-    <div className="container">
+    <main className="container">
       <h2 className="title">Popular:</h2>
       <div className="movies-container">
         {PopularMovies.length === 0 && <p>Loanding...</p>}
@@ -54,7 +54,7 @@ const Popular = () => {
         </span>
         
       </div>
-    </div>
+    </main>
   )
 }
 

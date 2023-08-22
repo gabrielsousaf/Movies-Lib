@@ -23,7 +23,7 @@ const Trending = () => {
 
 
   return (
-    <div className="container">
+    <main className="container">
       <h2 className="title">In Theaters:</h2>
       <div className="movies-container">
         {theaters.length === 0 && <p>Loading...</p>}
@@ -53,7 +53,7 @@ const Trending = () => {
           More Results <BiRightArrowAlt /> 
         </span>
       </div>
-    </div>
+    </main>
 
   )
 }

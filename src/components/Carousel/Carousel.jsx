@@ -61,6 +61,7 @@ export const carouselSettingsCast = {
     {
       breakpoint: 900,
       settings: {
+        arrows: false,
         slidesToShow: 2,
         slidesToScroll:2
       },
@@ -68,8 +69,9 @@ export const carouselSettingsCast = {
     {
       breakpoint: 600,
       settings: {
-        slidesToShow: 1,
-        slidesToScroll:1
+        arrows: false,
+        slidesToShow: 2,
+        slidesToScroll:2
       },
     },
   ],

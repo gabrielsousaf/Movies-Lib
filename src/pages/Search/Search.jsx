@@ -33,7 +33,7 @@ const Search = () => {
   };
 
   return (
-    <div className="container">
+    <main className="container">
       <h2 className="title">Search Results for: {searchQuery}</h2>
       <div className="movies-container">
         {loading ? (
@@ -45,7 +45,7 @@ const Search = () => {
         )}
       </div>
       
-    </div>
+    </main>
   );
 };
 

@@ -1,4 +1,5 @@
 import './Movies.css'
+import '../Home/Home.css'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -9,7 +10,7 @@ import { imgApi } from '../../services/api';
 import { fetchMovieDetails } from '../../services/Movie';
 import { fetchMovieCast } from '../../services/MovieCast';
 import { fetchRecommendedMovies } from '../../services/RecommendedMovies';
-import { fetchImages } from '../../services/Images';
+import { fetchImages } from '../../services/GaleryImages';
 
 import { carouselSettingsCast, carouselSettingsRecomended, carouselSettingsGalery } from '../../components/Carousel/Carousel';
 import { useCarousel } from '../../components/Carousel/CarouselFunction';
@@ -62,7 +63,7 @@ const MovieDetails = () => {
 
 
   return (
-    <div className="container-movie-details">
+    <main className="container-movie-details">
 
       <div className='poster'>
         <img src={firstImage} alt={`Image ${firstImage}`} className='poster-image' />
@@ -70,35 +71,35 @@ const MovieDetails = () => {
 
       <div className='card-info'>
         <div className='container-movie'>
-          <div>
+          <div className="movie-poster">
             <img src={imageUrl} alt={`${movieDetails.original_title} Poster`} />
           </div>
 
           <div className='content-info'>
-            <h1>{movieDetails.title}</h1>
-            <ul>
-              <li><BiSolidStar /> {movieDetails.vote_average} / 10</li>
-              <li>{movieDetails.release_date.substring(0, 4)}</li>
-              <li>{durationInHours}h{durationInMinutes}</li>
-            </ul>
-
-            <hr />
-
-            <p className='resume'>{movieDetails.overview}</p>
-
-            <div className="tags">
-              {movieGenres.map((genre) => (
-                <span key={genre.id} className="tag">
-                  {genre.name}
-                </span>
-              ))}
+            <div className="title">
+              <h1>{movieDetails.title}</h1>
             </div>
+            <div className="info"> 
+              <ul>
+                <li><BiSolidStar /> {movieDetails.vote_average} / 10</li>
+                <li>{movieDetails.release_date.substring(0, 4)}</li>
+                <li>{durationInHours}h{durationInMinutes}</li>
+              </ul>
 
+              <hr />
 
+              <p className='resume'>{movieDetails.overview}</p>
+
+              <div className="tags">
+                {movieGenres.map((genre) => (
+                  <span key={genre.id} className="tag">
+                    {genre.name}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
-
         </div>
-
       </div>
 
 
@@ -159,7 +160,7 @@ const MovieDetails = () => {
         </div>
 
       </div>
-    </div>
+    </main>
   );
 };
 
