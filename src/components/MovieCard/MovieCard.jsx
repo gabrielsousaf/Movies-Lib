@@ -49,25 +49,61 @@ export const MovieImageGallery = ({ image }) => {
   console.log('Image ID:', image.id);
   return (
     <div className="movie-card">
-      {/* <Link to={`/image/${image.id} `}> */}
+      <Link to={`/movie/${image.id}/images/${image.index} `}>
         <img 
           src={imgApi.defaults.baseURL + image.file_path} 
-          alt={image.name || image.title || 'Image'} 
+          alt={`Imagem ${image.name}`} 
         />
-      {/* </Link> */}
+      </Link>
     </div>
   );
 };
-
 
 
 export const MovieCredits = ({ credits }) => {
   return (
     <div className="movie-card">
       <div className="details">
-        <p>{credits.name}</p>
-        <p>{credits.job}</p>
+        <dl>
+          <dt>{credits.name}</dt>
+          <dd>{credits.job}</dd>
+        </dl>
       </div>
+
+    </div>
+  );
+};
+
+
+export const CastCardCredits = ({ actor }) => {
+  const characterName = actor.character;
+
+  return (
+    <div className="movie-card">
+      <ul className="details">
+        <li>        
+          <div className="container-image">
+            <img 
+              src={`https://image.tmdb.org/t/p/w200/${actor.profile_path}`} 
+              alt={actor.name}    
+            />
+          </div>
+          
+          <div className="info">
+            <p>{actor.name}</p>
+            <p>{characterName}</p>
+          </div>
+        </li>
+        {/* <div className="container-image">
+          <img 
+            src={`https://image.tmdb.org/t/p/w200/${actor.profile_path}`} 
+            alt={actor.name}    
+          />
+        </div>
+
+        <p>{actor.name}</p>
+        <p>{characterName}</p> */}
+      </ul>
 
     </div>
   );

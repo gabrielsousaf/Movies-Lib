@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+@font-face {
+  font-family:Source-Sans-Pro ;
+  src: url(../../fonts/source-sans-pro.bold.ttf);
+}
+
+.container-movie-cast{
+  margin: 3rem;
+  padding-top: 3rem;
+}
+
+.container-movie-cast p{
+  font-size: 1rem;
+  text-decoration: underline;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+}
+
+.container-movie-cast h2{
+  text-transform: uppercase;
+  font-family: "Source-Sans-Pro", sans-serif;
+  font-size: 4rem;
+  font-weight: 900;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.container-movie-cast .crew-list{
+  margin-top: 1.5rem;
+}
+
+.container-movie-cast .crew-list h3{
+  font-family: "Source-Sans-Pro", sans-serif;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.container-movie-cast .crew-list .movie-card .details dl{
+  display: grid;
+  grid-template-columns: 15rem 1fr;
+  gap: 0px 2rem;
+}
+
+.container-movie-cast .crew-list .movie-card .details dl dt,
+.container-movie-cast .crew-list .movie-card .details dl dd{
+  margin-top: 0.2rem;
+}
+
+
+.container-movie-cast .cast-list{
+  background-color: red;
+  margin-top: 2rem;
+  display: flex;
+}
+
+.container-movie-cast .cast-list h3{
+  font-family: "Source-Sans-Pro", sans-serif;
+  font-size: 3rem;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.container-movie-cast .cast-list .movie-card{
+  background-color: yellow;
+  display: flex;
+}
+
+.container-movie-cast .cast-list .movie-card .details .container-img {
+  background-color: blue;
+}
+
+.container-movie-cast .cast-list .movie-card .details{
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(15rem, 100%), 1fr));
+}

@@ -1,4 +1,3 @@
-// services/MovieCast.js
 import { api, apiKey } from './api';
 
 export const fetchMovieCastAndCrew = async (movieId) => {

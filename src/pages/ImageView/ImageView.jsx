@@ -8,6 +8,7 @@ const ImageView = () => {
 
   useEffect(() => {
     fetchImages(id).then((imageData) => {
+      console.log('Image Data:', imageData);
       setImage(imageData);
     });
   }, [id]);

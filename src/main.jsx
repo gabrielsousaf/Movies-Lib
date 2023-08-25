@@ -31,7 +31,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="/movie/:id/images" element={<MovieImagesGallery />} />
           <Route path="/movie/:id/credits" element={<CastCrew />} />
           <Route path='search' element={<Search />} />
-          <Route path='/movie/:id/images:id' element={<ImageView />} />
+          <Route path='movie/:id/images/:index' element={<ImageView />} />
         </Route>
       </Routes>
     </BrowserRouter>

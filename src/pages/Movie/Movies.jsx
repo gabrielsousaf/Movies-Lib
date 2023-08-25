@@ -134,7 +134,7 @@ const MovieDetails = () => {
       <div className="container-movies">
         <div className='text'>
           <h2>Cast</h2>
-          <button>
+          <button className='buttons'>
             <Link to={`/movie/${id}/credits`}>See full cast & crew</Link>
           </button>
         </div>
@@ -156,11 +156,13 @@ const MovieDetails = () => {
 
         <div className='text'>
           <h2>gallery</h2>
+
+          <button>
+            <Link to={`/movie/${id}/images`}>See all images</Link>
+          </button>
         </div>
 
-        <button>
-          <Link to={`/movie/${id}/images`}>See all images</Link>
-        </button>
+
 
         <div className='image'>
           <GalleryCarousel>

@@ -1,4 +1,4 @@
-import { api, apiKey, imagesMovie } from "./api";
+import { api, apiKey } from "./api";
 
 export const fetchImages = async (movieId) => {
   try {
