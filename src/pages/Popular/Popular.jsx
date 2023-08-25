@@ -6,7 +6,7 @@ import { handleNextPage, handlePrevPage } from "../../components/Pagination/Pagi
 
 import { fetchPopularMovies } from "../../services/PopularMovies"
 
-import { BiRightArrowAlt, BiLeftArrowAlt } from 'react-icons/bi'
+import { BiRightArrowAlt, BiLeftArrowAlt, BiUpArrowAlt } from 'react-icons/bi'
 
 
 const Popular = () => {
@@ -54,6 +54,10 @@ const Popular = () => {
         </span>
         
       </div>
+
+      <a href='#' className='scrollup'>
+        <BiUpArrowAlt />
+      </a>
     </main>
   )
 }

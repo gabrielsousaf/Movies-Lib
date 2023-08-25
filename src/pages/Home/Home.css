@@ -23,7 +23,8 @@
 }
 
 .container-home .container-context .text .buttons{
-  margin-right: 8px;
+  display: flex;
+  align-items: center;
 }
 
 .container-home .container-context .text .buttons span{

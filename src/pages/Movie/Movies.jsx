@@ -3,6 +3,7 @@ import '../Home/Home.css'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -133,7 +134,12 @@ const MovieDetails = () => {
       <div className="container-movies">
         <div className='text'>
           <h2>Cast</h2>
+          <button>
+            <Link to={`/movie/${id}/credits`}>See full cast & crew</Link>
+          </button>
         </div>
+
+        
         <div className='image'>
 
           <Carousel2>
@@ -147,9 +153,14 @@ const MovieDetails = () => {
       </div>
 
       <div className='container-movies'>
+
         <div className='text'>
           <h2>gallery</h2>
         </div>
+
+        <button>
+          <Link to={`/movie/${id}/images`}>See all images</Link>
+        </button>
 
         <div className='image'>
           <GalleryCarousel>

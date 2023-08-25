@@ -1,4 +1,4 @@
-import { api, apiKey } from "./api";
+import { api, apiKey, imagesMovie } from "./api";
 
 export const fetchImages = async (movieId) => {
   try {
@@ -7,6 +7,7 @@ export const fetchImages = async (movieId) => {
         api_key: apiKey,
       },
     });
+    console.log('Response from fetchImages:', response.data);
     return response.data;
   } catch (error) {
     console.error("Error fetching movie cast:", error);

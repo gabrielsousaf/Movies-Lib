@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto&family=Source+Sans+3:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
+html{
+  scroll-behavior: smooth;
+}
+
 .container{
   padding-top: 5rem;
 }
@@ -101,10 +105,40 @@ h2 {
   color: rgb(138, 138, 138);
 }
 
+.scrollup{
+  position: fixed;
+  right: 1rem;
+  bottom: 3rem;
+  display: inline-flex;
+  padding: 0.35rem;
+  font-size: 1.25rem;
+  background-color: #FFF;
+  color: #3B3B3B;
+  z-index: 10;
+}
+
 @media (max-width:1200px){
+
+  .container .title{
+    font-size: 2rem;
+  }
+
+  .container .movies-container{
+    justify-content: center;
+  }
+
   .container .movies-container 
   div{
-    width: 40%;
+    justify-content: center;
+    display: flex;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .container .movies-container div h2{
+    display: flex;
+    justify-content: center;
+    text-align: center;
   }
 }
 

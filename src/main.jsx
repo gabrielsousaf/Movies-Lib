@@ -13,6 +13,9 @@ import Search from './pages/Search/Search.jsx'
 import Popular from './pages/Popular/Popular.jsx'
 import Trending from './pages/Trending/Trending.jsx'
 import Theaters from './pages/Theaters/Theaters.jsx'
+import MovieImagesGallery from './pages/Gallery/Gallery.jsx'
+import CastCrew from './pages/CastAndCrew/CastAndCrew.jsx'
+import ImageView from './pages/ImageView/ImageView'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -25,7 +28,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path='/trending' element={<Trending />} />
           <Route path='/in-theaters' element={<Theaters />} />
           <Route path='movie/:id' element={<Movies />} />
+          <Route path="/movie/:id/images" element={<MovieImagesGallery />} />
+          <Route path="/movie/:id/credits" element={<CastCrew />} />
           <Route path='search' element={<Search />} />
+          <Route path='/movie/:id/images:id' element={<ImageView />} />
         </Route>
       </Routes>
     </BrowserRouter>

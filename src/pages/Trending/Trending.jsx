@@ -5,7 +5,7 @@ import {MovieCard} from "../../components/MovieCard/MovieCard";
 import { fetchTrendingMovies } from "../../services/TrendingMovies";
 import { handleNextPage, handlePrevPage } from "../../components/Pagination/Pagination"
 
-import { BiRightArrowAlt, BiLeftArrowAlt } from 'react-icons/bi'
+import { BiRightArrowAlt, BiLeftArrowAlt, BiUpArrowAlt } from 'react-icons/bi'
 
 
 const Trending = () => {
@@ -23,7 +23,7 @@ const Trending = () => {
 
 
   return (
-    <div className="container">
+    <main className="container">
       <h2 className="title">Trending:</h2>
       <div className="movies-container">
         {TrendingsMovies.length === 0 && <p>Loanding...</p>}
@@ -53,7 +53,10 @@ const Trending = () => {
         </span>
         
       </div>
-    </div>
+      <a href='#' className='scrollup'>
+        <BiUpArrowAlt />
+      </a>
+    </main>
 
   )
 }

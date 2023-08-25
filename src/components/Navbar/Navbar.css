@@ -102,7 +102,7 @@ header form input:hover{
     top: 100%;
   }
 
-  .hamburguer {
+  header .hamburguer {
     display: block;
   }
 

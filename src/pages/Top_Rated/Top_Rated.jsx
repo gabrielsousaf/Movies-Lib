@@ -3,7 +3,7 @@ import './style.css'
 import { useState, useEffect } from "react";
 import {MovieCard} from "../../components/MovieCard/MovieCard";
 import { fetchTopRatedMovies } from "../../services/TopMovies";
-import { BiRightArrowAlt, BiLeftArrowAlt } from 'react-icons/bi'
+import { BiRightArrowAlt, BiLeftArrowAlt, BiUpArrowAlt } from 'react-icons/bi'
 import { handleNextPage, handlePrevPage } from "../../components/Pagination/Pagination"
 
 
@@ -50,6 +50,10 @@ const Home = () => {
           More Results <BiRightArrowAlt /> 
         </span>
       </div>
+
+      <a href='#' className='scrollup'>
+        <BiUpArrowAlt />
+      </a>
     </main>
 
   )

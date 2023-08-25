@@ -114,6 +114,7 @@ export const carouselSettingsGalery = {
     {
       breakpoint: 900,
       settings: {
+        arrows: false,
         slidesToShow: 2,
         slidesToScroll:2
       },
@@ -121,6 +122,7 @@ export const carouselSettingsGalery = {
     {
       breakpoint: 600,
       settings: {
+        arrows: false,
         slidesToShow: 1,
         slidesToScroll:1
       },

@@ -1,5 +1,3 @@
-
-
 import { Link } from "react-router-dom";
 import { imgApi } from "../../services/api";
 
@@ -30,6 +28,7 @@ export const MovieRecomend = ({ movie }) => {
 };
 
 
+
 export const CastCard = ({ actor }) => {
   return (
     <div className="movie-card">
@@ -45,14 +44,29 @@ export const CastCard = ({ actor }) => {
 };
 
 
+
 export const MovieImageGallery = ({ image }) => {
+  console.log('Image ID:', image.id);
+  return (
+    <div className="movie-card">
+      {/* <Link to={`/image/${image.id} `}> */}
+        <img 
+          src={imgApi.defaults.baseURL + image.file_path} 
+          alt={image.name || image.title || 'Image'} 
+        />
+      {/* </Link> */}
+    </div>
+  );
+};
+
+
+
+export const MovieCredits = ({ credits }) => {
   return (
     <div className="movie-card">
       <div className="details">
-        <img 
-          src={imgApi.defaults.baseURL + image.file_path} 
-          alt={`Image ${image.id}`} 
-        />
+        <p>{credits.name}</p>
+        <p>{credits.job}</p>
       </div>
 
     </div>

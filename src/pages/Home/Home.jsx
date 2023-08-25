@@ -12,7 +12,7 @@ import { fetchInTheaters } from "../../services/TheatersMovies";
 import { fetchTrendingMovies } from "../../services/TrendingMovies";
 
 
-import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
+import { BiChevronLeft, BiChevronRight, BiUpArrowAlt } from "react-icons/bi";
 
 const Home = () => {
 
@@ -77,6 +77,9 @@ const Home = () => {
           </Carousel2>
         </div>
       </div>
+      <a href='#' className='scrollup'>
+        <BiUpArrowAlt />
+      </a>
     </main>
   );
 };

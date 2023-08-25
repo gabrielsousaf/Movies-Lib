@@ -165,6 +165,8 @@ span{
 
 .container-movie-details .recommended-movies 
 .container-movies .text 
+h2, 
+.container-movie-details .container-movies .text 
 h2{
   text-transform: uppercase;
   font-weight: 900;
@@ -266,8 +268,9 @@ span:hover{
 
   .container-movie-details .card-info
   .container-movie{
-    margin-top: 200px;
+    margin-top: 150px;
   }
+
 
   .container-movie-details .recommended-movies 
   .container-movies .text h2,
@@ -282,6 +285,17 @@ span:hover{
     min-width: 100px;
   }
 
+  .tags{
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+  }
+
+  .container-movie-details .card-info .container-movie
+  .content-info .info .tags 
+  span{
+    margin-top: 10px;
+  }
 
 }
 

@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+@font-face {
+  font-family:Source-Sans-Pro ;
+  src: url(../../fonts/source-sans-pro.bold.ttf);
+}
+
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+
+.container-movie-images{
+  margin: 3rem;
+  padding-top: 4rem;
+}
+
+.container-movie-images p{
+  font-size: 1rem;
+  text-decoration: underline;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+}
+
+
+.container-movie-images h2{
+  text-transform: uppercase;
+  font-family: "Source-Sans-Pro", sans-serif;
+  font-size: 4rem;
+  font-weight: 900;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.container-movie-images .image-gallery{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.container-movie-images .image-gallery .movie-card{
+  display: flex;
+  align-items: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+.container-movie-images .image-gallery .movie-card img{
+  justify-content: center;
+  max-width: 250px; 
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+  transition: 300ms all ease;
+}
+
+.container-movie-images .image-gallery .movie-card img:hover{
+  border:5px solid #5A1899;
+}
+
+
+
+@media(max-width:1200px){
+
+  .container-movie-images{
+    margin: 0.5rem;
+    padding-top: 4rem;
+  }
+
+  .container-movie-images .image-gallery{
+    padding-right: 10px;
+  }
+
+  .container-movie-images .image-gallery .movie-card{
+    margin-right: 0px;
+  }
+  .container-movie-images .image-gallery .movie-card img{
+    min-width: 180px;
+  }
+}
+
+@media (max-width:769px){
+
+  .container-movie-images p{
+    margin-left: 1rem;
+  }
+
+  .container-movie-images h2{
+    font-size: 1.953rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .container-movie-images .image-gallery .movie-card img{
+    min-width: 100px;
+  }
+}
