@@ -14,6 +14,20 @@ export const MovieCard = ({ movie }) => {
   );
 };
 
+export const MovieCardBackdrop = ({movie}) => {
+  const imageUrl = imgApi.defaults.baseURL + movie.backdrop_path;
+
+  return(
+    <div className="movie-card">
+    <Link className="details" to={`/movie/${movie.id}`}>
+      <img src={imageUrl} alt={movie.original_title} />
+      <h2>{movie.title}</h2>
+    </Link>
+  </div>
+  )
+}
+
+
 
 export const MovieRecomend = ({ movie }) => {
   const imageUrl = imgApi.defaults.baseURL + movie.poster_path;
@@ -45,19 +59,18 @@ export const CastCard = ({ actor }) => {
 
 
 
-export const MovieImageGallery = ({ image }) => {
+export const MovieImage = ({ image }) => {
   console.log('Image ID:', image.id);
   return (
     <div className="movie-card">
-      <Link to={`/movie/${image.id}/images/${image.index} `}>
-        <img 
-          src={imgApi.defaults.baseURL + image.file_path} 
-          alt={`Imagem ${image.name}`} 
-        />
-      </Link>
+      <img 
+        src={imgApi.defaults.baseURL + image.file_path} 
+        alt={`Imagem ${image.name}`} 
+      />
     </div>
   );
 };
+
 
 
 export const MovieCredits = ({ credits }) => {
@@ -75,36 +88,24 @@ export const MovieCredits = ({ credits }) => {
 };
 
 
+
 export const CastCardCredits = ({ actor }) => {
   const characterName = actor.character;
 
   return (
     <div className="movie-card">
-      <ul className="details">
-        <li>        
-          <div className="container-image">
-            <img 
-              src={`https://image.tmdb.org/t/p/w200/${actor.profile_path}`} 
-              alt={actor.name}    
-            />
-          </div>
-          
-          <div className="info">
-            <p>{actor.name}</p>
-            <p>{characterName}</p>
-          </div>
-        </li>
-        {/* <div className="container-image">
-          <img 
-            src={`https://image.tmdb.org/t/p/w200/${actor.profile_path}`} 
-            alt={actor.name}    
-          />
-        </div>
-
+      <img 
+        src={`https://image.tmdb.org/t/p/w92/${actor.profile_path}`} 
+        alt={actor.name}    
+      />
+      <div>
         <p>{actor.name}</p>
-        <p>{characterName}</p> */}
-      </ul>
+        <p>as {characterName}</p>
+      </div>
+
 
     </div>
   );
 };
+
+

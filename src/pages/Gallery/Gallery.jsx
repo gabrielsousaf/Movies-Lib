@@ -1,19 +1,18 @@
 import './Gallery.css'
 
 import { Link } from "react-router-dom";
-
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+
 import { fetchImages } from '../../services/GaleryImages';
 import { fetchMovieDetails } from '../../services/Movie';
-
-import { MovieImageGallery } from '../../components/MovieCard/MovieCard';
+import { MovieImage } from '../../components/MovieCard/MovieCard';
 
 const MovieImages = () => {
   const { id } = useParams();
   const [images, setImages] = useState([]);
   const [movieDetails, setMovieDetails] = useState({ title: '' }); 
-  
+
   useEffect(() => {
     fetchMovieDetails(id).then((movieData) => {
       setMovieDetails(movieData);
@@ -31,9 +30,10 @@ const MovieImages = () => {
       </Link>
       
       <h2>Gallery</h2>
+
       <div className="image-gallery">
         {images.map((image) => (
-          <MovieImageGallery key={image.id} image={image} />
+          <MovieImage key={image.id} image={image} />
         ))}
       </div>
     </main>

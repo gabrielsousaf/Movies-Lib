@@ -49,10 +49,9 @@
 }
 
 
+
 .container-movie-cast .cast-list{
-  background-color: red;
-  margin-top: 2rem;
-  display: flex;
+  margin-top: 2rem;;
 }
 
 .container-movie-cast .cast-list h3{
@@ -62,17 +61,74 @@
   margin-bottom: 0.5rem;
 }
 
-.container-movie-cast .cast-list .movie-card{
-  background-color: yellow;
-  display: flex;
-}
 
-.container-movie-cast .cast-list .movie-card .details .container-img {
-  background-color: blue;
-}
-
-.container-movie-cast .cast-list .movie-card .details{
+.container-movie-cast .cast-list div{
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(auto-fill, minmax(min(15rem, 100%), 1fr));
+}
+
+.container-movie-cast .cast-list div .movie-card{
+  display: flex;
+}
+
+.container-movie-cast .cast-list div img{
+  border-radius: 1rem;
+  background: #b1b1b1;
+  width: auto;
+}  
+
+.container-movie-cast .cast-list div .movie-card div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0px;
+}
+
+.container-movie-cast .cast-list div .movie-card div p{
+  text-decoration: none;
+  margin-top: 0.5rem;
+}
+
+.container-movie-cast .cast-list div .movie-card div p:nth-child(2){
+  color: #b1b1b1;
+  font-weight: 400;
+}
+
+
+.scrollup{
+  position: fixed;
+  right: 1rem;
+  bottom: 3rem;
+  display: inline-flex;
+  padding: 0.35rem;
+  font-size: 1.25rem;
+  background-color: #FFF;
+  color: #3B3B3B;
+  z-index: 10;
+}
+
+
+@media(max-width:1200px){
+  .container-movie-cast{
+    margin: 0.5rem;
+    padding-top: 4rem;
+  }
+
+  .container-movie-cast h2{
+    font-size: 1.953rem;
+  }
+
+  .container-movie-cast .crew-list{
+    margin-top: 0.5rem;
+  }
+
+  .container-movie-cast .crew-list h3{
+    font-size: 1.25rem
+  }
+
+  .container-movie-cast .crew-list .movie-card .details dl{
+    margin-top: 10px;
+  }
+ 
 }

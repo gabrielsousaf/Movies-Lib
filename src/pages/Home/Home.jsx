@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 
 import { useCarousel } from '../../components/Carousel/CarouselFunction';
 import { carouselSettings, carouselSettings2 } from '../../components/Carousel/Carousel';
-import { MovieCard } from "../../components/MovieCard/MovieCard";
+import { MovieCard, MovieCardBackdrop } from "../../components/MovieCard/MovieCard";
 
 import { fetchInTheaters } from "../../services/TheatersMovies"; 
 import { fetchTrendingMovies } from "../../services/TrendingMovies";
@@ -51,7 +51,7 @@ const Home = () => {
             {TrendingsMovies.length === 0 && <p>Loading...</p>}
             {TrendingsMovies.length > 0 &&
               TrendingsMovies.map((movie) => (
-                <MovieCard key={movie.id} movie={movie} />
+                <MovieCardBackdrop key={movie.id} movie={movie} />
               ))}
           </Carousel>
         </div>
@@ -77,6 +77,7 @@ const Home = () => {
           </Carousel2>
         </div>
       </div>
+      
       <a href='#' className='scrollup'>
         <BiUpArrowAlt />
       </a>

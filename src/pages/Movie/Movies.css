@@ -161,7 +161,6 @@ span{
 .text{
   display: flex;
   justify-content: space-between;
-  background-color: red;
 }
 
 .container-movie-details .recommended-movies 
@@ -200,9 +199,34 @@ span:hover{
   background-color: #5A189A;
 }
 
+.container-movie-details .container-movies .text{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
+.container-movie-details .container-movies .text a {
+  display: inline-block;
+  text-decoration: none;
+}
 
+.container-movie-details .container-movies .text a button{
+  background-color: #3b3b3b;
+  color: white;
+  padding: 0.5rem 0.9rem;
+  border: none;
+  text-decoration: none;
+  border-radius: 1rem;
+  font-size: 1em;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  appearance: none;
+  cursor: pointer;
+  transition: 300ms all ease;
+}
 
+.container-movie-details .container-movies .text a button:hover{
+  background-color: #5A1899;
+}
 
 
 

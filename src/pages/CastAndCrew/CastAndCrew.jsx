@@ -2,6 +2,8 @@ import './CastAndCrew.css'
 
 import { Link } from "react-router-dom";
 
+import { BiUpArrowAlt } from 'react-icons/bi'
+
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchMovieCastAndCrew } from '../../services/MovieCastAndCrew';
@@ -29,7 +31,7 @@ const CastAndCrew = () => {
   const otherCrew = castAndCrew.crew.filter((member) => member.job !== 'Director' && member.department !== 'Writing');
 
   return (
-    <div className="container-movie-cast">
+    <main className="container-movie-cast">
 
       <Link to={`/movie/${id}`}>
         <p>{movieDetails.title} <span> ({new Date(movieDetails.release_date).getFullYear()}) </span> </p>
@@ -56,9 +58,13 @@ const CastAndCrew = () => {
 
       <div className="cast-list">
         <h3>Cast</h3>
-        {castAndCrew.cast.map((actor, index) => (
-          <CastCardCredits key={index} actor={actor} />
-        ))}
+
+        <div>
+          {castAndCrew.cast.map((actor, index) => (
+            <CastCardCredits key={index} actor={actor} />
+          ))}
+        </div>
+
       </div>
 
 
@@ -69,7 +75,11 @@ const CastAndCrew = () => {
         ))}
       </div>
 
-    </div>
+      <a href='#' className='scrollup'>
+        <BiUpArrowAlt />
+      </a>
+
+    </main>
   );
 };
 

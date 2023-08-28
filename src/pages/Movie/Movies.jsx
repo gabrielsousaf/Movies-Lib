@@ -16,7 +16,7 @@ import { fetchImages } from '../../services/GaleryImages';
 import { carouselSettingsCast, carouselSettingsRecomended, carouselSettingsGalery } from '../../components/Carousel/Carousel';
 import { useCarousel } from '../../components/Carousel/CarouselFunction';
 
-import { MovieRecomend, CastCard, MovieImageGallery } from '../../components/MovieCard/MovieCard'
+import { MovieRecomend, CastCard, MovieImage } from '../../components/MovieCard/MovieCard'
 
 import { BiChevronLeft, BiChevronRight, BiSolidStar } from "react-icons/bi";
 
@@ -103,10 +103,7 @@ const MovieDetails = () => {
         </div>
       </div>
 
-
-
       <div className="recommended-movies">
-
         <div className='container-movies'>
           <div className='text'>
             <h2>Recommended</h2>
@@ -134,9 +131,9 @@ const MovieDetails = () => {
       <div className="container-movies">
         <div className='text'>
           <h2>Cast</h2>
-          <button className='buttons'>
-            <Link to={`/movie/${id}/credits`}>See full cast & crew</Link>
-          </button>
+          <Link to={`/movie/${id}/credits`}>
+            <button>See full cast & crew</button>
+          </Link>    
         </div>
 
         
@@ -157,9 +154,9 @@ const MovieDetails = () => {
         <div className='text'>
           <h2>gallery</h2>
 
-          <button>
-            <Link to={`/movie/${id}/images`}>See all images</Link>
-          </button>
+          <Link to={`/movie/${id}/images`}>
+            <button> See all images </button>
+          </Link>
         </div>
 
 
@@ -167,7 +164,7 @@ const MovieDetails = () => {
         <div className='image'>
           <GalleryCarousel>
             {gallery.map((image) => (
-              <MovieImageGallery key={image.id} image={image} />
+              <MovieImage key={image.id} image={image} />
             ))}
           </GalleryCarousel>
         </div>
