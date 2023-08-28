@@ -1,7 +1,7 @@
 <h1 align="center" width:100%>
 
-![Form React Login - Google Chrome 2023-07-20 11-20-46](https://github.com/gabrielsousaf/Login-Form-React/assets/121953504/6bd08c8a-75f4-4ed6-94d0-946175152cf3)
-![Design_sem_nome__1_-removebg-preview](https://github.com/gabrielsousaf/Login-Form-React/assets/121953504/aa015fcf-5f4e-4966-9b50-a20882e1ba75)
+![Home - Google Chrome 2023-08-28 20-08-01-min](https://github.com/gabrielsousaf/Movies-Lib/assets/121953504/8c1b9793-04db-45c3-83e0-153a7baf0b60)
+![Design_sem_nome__2_-removebg-preview](https://github.com/gabrielsousaf/Movies-Lib/assets/121953504/a90a4353-7d3a-41d8-9602-bd18c60bd0ba)
 
 
 # 📱 Movies-Lib-React.
@@ -11,6 +11,7 @@
 
 ## ⚙ Descrição do projeto.
 > * Configuração de rotas usando o React Router Dom.
+> * Menu Mobile e responsividade.
 > * Página de Erro 404: Esta página é renderizada quando o usuário acessa uma rota que não corresponde a nenhuma das rotas definidas no projeto.
 > * Utilização da API externa TMDB.
 > * Funcionalidade de busca de filmes.
