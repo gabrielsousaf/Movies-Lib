@@ -1,8 +1,10 @@
 import '../Top_Rated/style.css'
 
+import { Helmet } from 'react-helmet';
+
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import {MovieCard} from "../../components/MovieCard/MovieCard";
+import { MovieCard } from "../../components/MovieCard/MovieCard";
 import { searchMovies } from "../../services/SearchMovies";
 
 
@@ -34,6 +36,7 @@ const Search = () => {
 
   return (
     <main className="container">
+      <Helmet title={`Search Results for: ${searchQuery }`}/>
       <h2 className="title">Search Results for: {searchQuery}</h2>
       <div className="movies-container">
         {loading ? (

@@ -1,14 +1,17 @@
 import './CastAndCrew.css'
 
+import { Helmet } from 'react-helmet';
+
 import { Link } from "react-router-dom";
-
 import { BiUpArrowAlt } from 'react-icons/bi'
-
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+
 import { fetchMovieCastAndCrew } from '../../services/MovieCastAndCrew';
-import { CastCardCredits, MovieCredits } from '../../components/MovieCard/MovieCard';
 import { fetchMovieDetails } from '../../services/Movie';
+
+import { CastCardCredits, MovieCredits } from '../../components/MovieCard/MovieCard';
+
 
 
 const CastAndCrew = () => {
@@ -32,6 +35,8 @@ const CastAndCrew = () => {
 
   return (
     <main className="container-movie-cast">
+
+      <Helmet title={`${movieDetails.title}: Cast & Crew`} />
 
       <Link to={`/movie/${id}`}>
         <p>{movieDetails.title} <span> ({new Date(movieDetails.release_date).getFullYear()}) </span> </p>

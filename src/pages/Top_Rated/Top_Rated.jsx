@@ -1,10 +1,13 @@
 import './style.css'
 
+import { Helmet } from 'react-helmet';
+
 import { useState, useEffect } from "react";
-import {MovieCard} from "../../components/MovieCard/MovieCard";
+import { MovieCard } from "../../components/MovieCard/MovieCard";
+import { handleNextPage, handlePrevPage } from "../../components/Pagination/Pagination"
+
 import { fetchTopRatedMovies } from "../../services/TopMovies";
 import { BiRightArrowAlt, BiLeftArrowAlt, BiUpArrowAlt } from 'react-icons/bi'
-import { handleNextPage, handlePrevPage } from "../../components/Pagination/Pagination"
 
 
 const Home = () => {
@@ -23,6 +26,7 @@ const Home = () => {
 
   return (
     <main className="container">
+      <Helmet title='Top Rated' />
       <h2 className="title">Top Rated:</h2>
       <div className="movies-container">
         {topRatedMoveis.length === 0 && <p>Loanding...</p>}

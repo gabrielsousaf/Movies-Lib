@@ -2,6 +2,8 @@ import './Home.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+import  { Helmet } from 'react-helmet';
+
 import { useState, useEffect } from "react";
 
 import { useCarousel } from '../../components/Carousel/CarouselFunction';
@@ -36,6 +38,7 @@ const Home = () => {
  
   return (
     <main className='container-home'>
+      <Helmet title='Home' />
       {/* Carrossel 1 - Trending Today */}
       <div className='container-context'>
         <div className='text'>

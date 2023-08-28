@@ -1,4 +1,5 @@
 import './Gallery.css'
+import { Helmet } from 'react-helmet';
 
 import { Link } from "react-router-dom";
 import { useEffect, useState } from 'react';
@@ -25,6 +26,7 @@ const MovieImages = () => {
 
   return (
     <main className="container-movie-images">
+      <Helmet title={`${movieDetails.title}: Gallery`} />
       <Link to={`/movie/${id}`}>
         <p>{movieDetails.title} <span> ({new Date(movieDetails.release_date).getFullYear()}) </span> </p>
       </Link>

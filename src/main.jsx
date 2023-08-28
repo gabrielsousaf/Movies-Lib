@@ -15,6 +15,7 @@ import Trending from './pages/Trending/Trending.jsx'
 import Theaters from './pages/Theaters/Theaters.jsx'
 import MovieImagesGallery from './pages/Gallery/Gallery.jsx'
 import CastCrew from './pages/CastAndCrew/CastAndCrew.jsx'
+import Error404 from './pages/Page404/Page404'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -30,6 +31,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="/movie/:id/images" element={<MovieImagesGallery />} />
           <Route path="/movie/:id/credits" element={<CastCrew />} />
           <Route path='search' element={<Search />} />
+          <Route path='*' element={<Error404/>} />
         </Route>
       </Routes>
     </BrowserRouter>

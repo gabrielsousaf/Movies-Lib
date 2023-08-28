@@ -1,10 +1,12 @@
 import '../Top_Rated/style.css'
 
+import { Helmet } from 'react-helmet';
+
 import { useState, useEffect } from "react";
-import {MovieCard} from "../../components/MovieCard/MovieCard";
-import { fetchInTheaters } from "../../services/TheatersMovies";
+import { MovieCard } from "../../components/MovieCard/MovieCard";
 import { handleNextPage, handlePrevPage } from "../../components/Pagination/Pagination"
 
+import { fetchInTheaters } from "../../services/TheatersMovies";
 import { BiRightArrowAlt, BiLeftArrowAlt, BiUpArrowAlt } from 'react-icons/bi'
 
 
@@ -24,6 +26,7 @@ const Trending = () => {
 
   return (
     <main className="container">
+      <Helmet title='Theaters' />
       <h2 className="title">In Theaters:</h2>
       <div className="movies-container">
         {theaters.length === 0 && <p>Loading...</p>}

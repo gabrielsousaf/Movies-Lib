@@ -3,6 +3,8 @@ import '../Home/Home.css'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+import { Helmet } from 'react-helmet';
+
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
@@ -15,7 +17,6 @@ import { fetchImages } from '../../services/GaleryImages';
 
 import { carouselSettingsCast, carouselSettingsRecomended, carouselSettingsGalery } from '../../components/Carousel/Carousel';
 import { useCarousel } from '../../components/Carousel/CarouselFunction';
-
 import { MovieRecomend, CastCard, MovieImage } from '../../components/MovieCard/MovieCard'
 
 import { BiChevronLeft, BiChevronRight, BiSolidStar } from "react-icons/bi";
@@ -65,6 +66,7 @@ const MovieDetails = () => {
 
   return (
     <main className="container-movie-details">
+      <Helmet title={`${movieDetails.title}: Details`} />
 
       <div className='poster'>
         <img src={firstImage} alt={`Image ${firstImage}`} className='poster-image' />
