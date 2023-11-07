@@ -70,8 +70,8 @@ export const carouselSettingsCast = {
       breakpoint: 600,
       settings: {
         arrows: false,
-        slidesToShow: 2,
-        slidesToScroll:2
+        slidesToShow: 1,
+        slidesToScroll:1
       },
     },
   ],
@@ -80,7 +80,7 @@ export const carouselSettingsCast = {
 export const carouselSettingsRecomended = {
   dots: true,
   infinite: true,
-  arrows: false,
+  arrows: true,
   speed: 500,
   slidesToShow: 5,
   slidesToScroll: 5,
@@ -103,7 +103,7 @@ export const carouselSettingsRecomended = {
 };
 
 
-export const carouselSettingsGalery = {
+export const carouselSettingsGallery = {
   dots: true,
   infinite: true,
   arrows: true,

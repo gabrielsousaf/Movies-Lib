@@ -1,15 +1,16 @@
-import './Gallery.css'
+import { Main, Name, Title, ImageGallery } from './Gallery.style'
+
 import { Helmet } from 'react-helmet';
 
 import { Link } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { fetchImages } from '../../services/GaleryImages';
-import { fetchMovieDetails } from '../../services/Movie';
-import { MovieImage } from '../../components/MovieCard/MovieCard';
+import { fetchGallery } from '../../services/Fetches/GalleryImages';
+import { fetchMovieDetails } from '../../services/Fetches/Movie';
+import { MovieCardGallery } from '../../components/MovieCard/MovieCardGallery';
 
-const MovieImages = () => {
+const Gallery = () => {
   const { id } = useParams();
   const [images, setImages] = useState([]);
   const [movieDetails, setMovieDetails] = useState({ title: '' }); 
@@ -19,27 +20,29 @@ const MovieImages = () => {
       setMovieDetails(movieData);
     });
 
-    fetchImages(id).then((imageData) => {
+    fetchGallery(id).then((imageData) => {
       setImages(imageData.backdrops);
     });
   }, [id]);
 
+
+
   return (
-    <main className="container-movie-images">
+    <Main>
       <Helmet title={`${movieDetails.title}: Gallery`} />
       <Link to={`/movie/${id}`}>
-        <p>{movieDetails.title} <span> ({new Date(movieDetails.release_date).getFullYear()}) </span> </p>
+        <Name>{movieDetails.title} <span> ({new Date(movieDetails.release_date).getFullYear()}) </span> </Name>
       </Link>
       
-      <h2>Gallery</h2>
+      <Title>Gallery</Title>
 
-      <div className="image-gallery">
+      <ImageGallery>
         {images.map((image) => (
-          <MovieImage key={image.id} image={image} />
+          <MovieCardGallery  key={image.id} image={image} />
         ))}
-      </div>
-    </main>
+      </ImageGallery>
+    </Main>
   );
 }
 
-export default MovieImages;
+export default Gallery;

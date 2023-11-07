@@ -1,4 +1,4 @@
-import { searchApi, apiKey } from "./api";
+import { searchApi, apiKey } from "../api/api";
 
 export const searchMovies = async (query) => {
   try {
@@ -8,9 +8,6 @@ export const searchMovies = async (query) => {
         query
       },
     });
-
-    console.log("Reponse data:", response.data)
-    console.log("Results:", response.data.results)
 
     return response.data.results;
   }

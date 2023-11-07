@@ -1,9 +1,7 @@
+import { Header, HeaderButton, Nav, Form} from './Navbar.style'
 import { useEffect, useState } from "react"
-
 import { NavLink, useNavigate } from "react-router-dom"
 import { BiAlignJustify } from "react-icons/bi"
-
-import './Navbar.css'
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -25,12 +23,13 @@ const Navbar = () => {
   }, [showMenu]);
 
 
-
   const handleMenuToggle = () => {
     setShowMenu((prevState) => !prevState)
   }
 
-  
+  const handleMenuItemClick = () => {
+    setShowMenu(false);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -39,56 +38,64 @@ const Navbar = () => {
     setSearch("");
   }
 
+
   return (
-    <header className='sticky'>
-      <button className="hamburguer" onClick={handleMenuToggle}>
-        <BiAlignJustify className={`hamburguer-line ${showMenu ? 'active' : ''}`} />
-      </button>
-      
-      <nav id='navbar' className={showMenu ? 'show' : ''}>
+    <Header>
+      <HeaderButton className={`hamburguer ${showMenu ? 'active' : ''}`} onClick={handleMenuToggle}>
+        <BiAlignJustify className="hamburguer-line" />
+      </HeaderButton>
+
+      <Nav id='navbar' className={showMenu ? 'show' : ''}>
         <h2>
           <NavLink
             to="/"
             activeClassName="active"
-            exact>
+            onClick={handleMenuItemClick}>
             Home
           </NavLink>
         </h2>
-
         <h2>
-          <NavLink
+          <NavLink 
             to="/top-rated"
-            activeClassName="active">
+            activeClassName="active"
+            onClick={handleMenuItemClick}>
             Top Rated
           </NavLink>
         </h2>
-
         <h2>
           <NavLink
             to="/popular"
-            activeClassName="active">
+            activeClassName="active"
+            onClick={handleMenuItemClick}>
             Popular
           </NavLink>
         </h2>
-
         <h2>
-          <NavLink to="/trending"> Trending </NavLink>
+          <NavLink
+            to="/trending"
+            activeClassName="active"
+            onClick={handleMenuItemClick}>
+            Trending
+          </NavLink>
         </h2>
-
         <h2>
-          <NavLink to="/in-theaters"> In-Theaters </NavLink>
+          <NavLink 
+            to="/in-theaters"
+            activeClassName="active"
+            onClick={handleMenuItemClick}>
+            IN-THEATERS
+          </NavLink>
         </h2>
-      </nav>
-
-      <form onSubmit={handleSubmit}>
+      </Nav>
+      <Form onSubmit={handleSubmit}>
         <input
-          type="text"
-          placeholder="Search movies..."
+          type='text'
+          placeholder='Search Series...'
           onChange={(e) => setSearch(e.target.value)}
-          value={search}   
+          value={search} 
         />
-      </form>
-    </header>
+      </Form>
+    </Header>
   )
 }
 

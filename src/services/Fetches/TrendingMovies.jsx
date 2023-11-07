@@ -1,4 +1,4 @@
-import { apiKey, api_trending } from "./api";
+import { apiKey, api_trending } from "../api/api";
 
 export const fetchTrendingMovies = async (page) => {
   try{

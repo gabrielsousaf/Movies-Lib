@@ -1,44 +1,46 @@
-import '../Top_Rated/style.css'
+import { Main, Title, Container, Pagination } from "./Trending.style"
 
 import { Helmet } from 'react-helmet';
 
-import { useState, useEffect } from "react";
+import { useState, useEffect } from "react"
 
-import { MovieCard } from "../../components/MovieCard/MovieCard";
+import { MovieCard } from "../../components/MovieCard/MovieCard"
 import { handleNextPage, handlePrevPage } from "../../components/Pagination/Pagination"
+import { fetchTrendingMovies } from "../../services/Fetches/TrendingMovies"
 
-import { fetchTrendingMovies } from "../../services/TrendingMovies";
-import { BiRightArrowAlt, BiLeftArrowAlt, BiUpArrowAlt } from 'react-icons/bi'
+import { BiRightArrowAlt, BiLeftArrowAlt } from 'react-icons/bi'
 
-
-const Trending = () => {
-  const [ TrendingsMovies, setTreandingsMovies ] = useState([])
-
+const TopRated = () => {
+  const [ TrendingMovie, setTrendingMovie ] =useState([]);
   const [ currentPage, setCurrentPage ] = useState(1);
   const [ totalPages, setTotalPages ] = useState(1);
 
+
   useEffect(() => {
-    fetchTrendingMovies(currentPage).then(({ results, total_pages}) => {
-      setTreandingsMovies(results);
-      setTotalPages(total_pages);
-    })
+    window.scrollTo(0, 0);
   }, [currentPage]);
 
+  useEffect(() => {
+    fetchTrendingMovies(currentPage).then(({ results, total_pages}) => {
+      setTrendingMovie(results)
+      setTotalPages(total_pages);
+    }, [currentPage])
+  })
 
   return (
-    <main className="container">
-      <Helmet title='Trending' />
-      <h2 className="title">Trending:</h2>
-      <div className="movies-container">
-        {TrendingsMovies.length === 0 && <p>Loanding...</p>}
-        {TrendingsMovies.length > 0 &&
-          TrendingsMovies.map((movie) => 
-          <MovieCard key={movie.id} movie={movie} />
-        )}
-      </div>
+    <Main>
+      <Helmet title='Trending'/>
+      <Title>Trending:</Title>
+      <Container>
+        {TrendingMovie.length === 0 && <p>Loading...</p>}
+          {TrendingMovie.length > 0 &&
+            TrendingMovie.map((movie) => 
+            <MovieCard key={movie.id} movie={movie} />
+          )}
+      </Container>
 
-      <div className="pagination">
-        <span 
+      <Pagination>
+      <span 
           onClick={() => handlePrevPage(currentPage, setCurrentPage)} 
           disabled={currentPage === 1}
           className={currentPage === 1 ? "not-page" : "page"}  
@@ -46,7 +48,6 @@ const Trending = () => {
           <BiLeftArrowAlt /> 
           Previous Results
         </span>
-
         <p>Page {currentPage}</p>
         <span 
           onClick={() => handleNextPage(currentPage, totalPages, setCurrentPage)}
@@ -55,14 +56,9 @@ const Trending = () => {
         >
           More Results <BiRightArrowAlt /> 
         </span>
-        
-      </div>
-      <a href='#' className='scrollup'>
-        <BiUpArrowAlt />
-      </a>
-    </main>
-
+      </Pagination>
+    </Main>
   )
 }
 
-export default Trending;
+export default TopRated

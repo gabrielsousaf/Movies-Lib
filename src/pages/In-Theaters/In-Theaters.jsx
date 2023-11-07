@@ -1,17 +1,15 @@
-import { Main, Title, Container, Pagination } from "./Popular.style"
-
-import { Helmet } from 'react-helmet';
+import { Main, Title, Container, Pagination } from "./In-Theaters.style"
 
 import { useState, useEffect } from "react"
 
 import { MovieCard } from "../../components/MovieCard/MovieCard"
 import { handleNextPage, handlePrevPage } from "../../components/Pagination/Pagination"
-import { fetchPopularMovies } from "../../services/Fetches/PopularMovies"
+import { fetchInTheaters } from "../../services/Fetches/TheatersMovies"
 
 import { BiRightArrowAlt, BiLeftArrowAlt } from 'react-icons/bi'
 
-const Popular = () => {
-  const [ PopularMovie, setPopularMovie ] =useState([]);
+const InTheaters = () => {
+  const [ InTheatersMovie, setInTheatersMovie ] =useState([]);
   const [ currentPage, setCurrentPage ] = useState(1);
   const [ totalPages, setTotalPages ] = useState(1);
 
@@ -21,20 +19,19 @@ const Popular = () => {
   }, [currentPage]);
 
   useEffect(() => {
-    fetchPopularMovies(currentPage).then(({ results, total_pages}) => {
-      setPopularMovie(results)
+    fetchInTheaters(currentPage).then(({ results, total_pages}) => {
+      setInTheatersMovie(results)
       setTotalPages(total_pages);
     }, [currentPage])
   })
 
   return (
     <Main>
-      <Helmet title='Popular'/>
-      <Title>Popular:</Title>
+      <Title>In Theaters:</Title>
       <Container>
-        {PopularMovie.length === 0 && <p>Loading...</p>}
-          {PopularMovie.length > 0 &&
-            PopularMovie.map((movie) => 
+        { InTheatersMovie.length === 0 && <p>Loading...</p>}
+          { InTheatersMovie.length > 0 &&
+            InTheatersMovie.map((movie) => 
             <MovieCard key={movie.id} movie={movie} />
           )}
       </Container>
@@ -61,4 +58,4 @@ const Popular = () => {
   )
 }
 
-export default Popular
+export default InTheaters;

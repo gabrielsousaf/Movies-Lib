@@ -1,4 +1,4 @@
-import './CastAndCrew.css'
+import { Main, CrewList, Name, Title, CastList, Container } from './CastAndCrew.style'
 
 import { Helmet } from 'react-helmet';
 
@@ -7,11 +7,10 @@ import { BiUpArrowAlt } from 'react-icons/bi'
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { fetchMovieCastAndCrew } from '../../services/MovieCastAndCrew';
-import { fetchMovieDetails } from '../../services/Movie';
+import { fetchMovieCastAndCrew } from '../../services/Fetches/MovieCastAndCrew';
+import { fetchMovieDetails } from '../../services/Fetches/Movie';
 
-import { CastCardCredits, MovieCredits } from '../../components/MovieCard/MovieCard';
-
+import { MovieCredits, CastCardCredits } from '../../components/MovieCard/MovieCardCastCrew';
 
 
 const CastAndCrew = () => {
@@ -34,7 +33,7 @@ const CastAndCrew = () => {
   const otherCrew = castAndCrew.crew.filter((member) => member.job !== 'Director' && member.department !== 'Writing');
 
   return (
-    <main className="container-movie-cast">
+    <Main className="container-movie-cast">
 
       <Helmet title={`${movieDetails.title}: Cast & Crew`} />
 
@@ -42,49 +41,47 @@ const CastAndCrew = () => {
         <p>{movieDetails.title} <span> ({new Date(movieDetails.release_date).getFullYear()}) </span> </p>
       </Link>
       
-      <h2>Cast & Crew</h2>
+      <Title>Cast & Crew</Title>
 
-      <div className="crew-list">
-        <h3>Directors</h3>
+      <CrewList className="crew-list">
+        <Name>Directors</Name>
         {directors.map((director, index) => (
           <MovieCredits key={index} credits={director} />
         ))}
-      </div>
+      </CrewList>
 
 
-      <div className="crew-list">
-        <h3>Writers</h3>
+      <CrewList className="crew-list">
+        <Name>Writers</Name>
         {writers.map((writer, index) => (
           <MovieCredits key={index} credits={writer} />
         ))}
-      </div>
+      </CrewList>
 
 
 
-      <div className="cast-list">
-        <h3>Cast</h3>
-
-        <div>
+      <CastList className="cast-list">
+        <Name>Cast</Name>
+        <Container>
           {castAndCrew.cast.map((actor, index) => (
             <CastCardCredits key={index} actor={actor} />
           ))}
-        </div>
+        </Container>
+      </CastList>
 
-      </div>
 
-
-      <div className="crew-list">
-        <h3>Crew</h3>
+      <CrewList className="crew-list">
+        <Name>Crew</Name>
         {otherCrew.map((crewMember, index) => (
           <MovieCredits key={index} credits={crewMember} />
         ))}
-      </div>
+      </CrewList>
 
       <a href='#' className='scrollup'>
         <BiUpArrowAlt />
       </a>
 
-    </main>
+    </Main>
   );
 };
 

@@ -1,4 +1,4 @@
-import {api, apiKey } from "./api";
+import {api, apiKey } from "../api/api";
 
 export const fetchMovieDetails = async (movieId) => {
   try {
@@ -11,7 +11,7 @@ export const fetchMovieDetails = async (movieId) => {
     return response.data;
   }
   catch (error) {
-    console.error("Error fetching movies:", error);
+    console.error("Error fetching MovieDetails:", error);
     return null
   }
 }

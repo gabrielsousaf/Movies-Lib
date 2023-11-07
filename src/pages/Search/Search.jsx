@@ -1,11 +1,13 @@
-import '../Top_Rated/style.css'
+import { Main, Title, Container } from "./Search.style"
+
 
 import { Helmet } from 'react-helmet';
 
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { MovieCard } from "../../components/MovieCard/MovieCard";
-import { searchMovies } from "../../services/SearchMovies";
+import { searchMovies } from "../../services/Fetches/SearchMovies";
+
 
 
 const Search = () => {
@@ -35,10 +37,10 @@ const Search = () => {
   };
 
   return (
-    <main className="container">
+    <Main>
       <Helmet title={`Search Results for: ${searchQuery }`}/>
-      <h2 className="title">Search Results for: {searchQuery}</h2>
-      <div className="movies-container">
+      <Title>Search Results for: {searchQuery} </Title>
+      <Container>
         {loading ? (
           <p>Loading...</p>
         ) : (
@@ -46,9 +48,9 @@ const Search = () => {
           movies.length > 0 &&
           movies.map((movie) => <MovieCard key={movie.id} movie={movie} />)
         )}
-      </div>
+      </Container>
       
-    </main>
+    </Main>
   );
 };
 

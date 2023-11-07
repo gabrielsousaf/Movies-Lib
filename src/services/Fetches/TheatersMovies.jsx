@@ -1,4 +1,4 @@
-import { api, apiKey } from "./api";
+import { api, apiKey } from "../api/api";
 
 export const fetchInTheaters = async (page) => {
   try{

@@ -1,4 +1,4 @@
-import {api, apiKey } from "./api";
+import {api, apiKey } from "../api/api";
 
 export const fetchTopRatedMovies = async (page) => {
   try {
@@ -11,7 +11,7 @@ export const fetchTopRatedMovies = async (page) => {
     return response.data;
   }
   catch (error) {
-    console.error("Error fetching popular movies:", error);
+    console.error("Error fetching Top Rated movies:", error);
     return { results: [], total_pages: 1}
   }
 }

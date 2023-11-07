@@ -9,7 +9,7 @@ import { format } from 'date-fns';
 import { enUS } from 'date-fns/locale';
 
 
-export const MovieCard = ({ movie }) => {
+export const MovieCardRecommend = ({ movie }) => {
   const imageUrl = imgApi.defaults.baseURL + movie.poster_path;
 
   let formattedDate = "";
@@ -88,10 +88,10 @@ export const MovieCard = ({ movie }) => {
   );
 };
 
-MovieCard.propTypes = {
+MovieCardRecommend.propTypes = {
   movie: PropTypes.shape({
-    release_date: PropTypes.number,
     poster_path: PropTypes.string,
+    release_date: PropTypes.number,
     original_title: PropTypes.string,
     name: PropTypes.string,
     first_air_date: PropTypes.string,
@@ -100,5 +100,77 @@ MovieCard.propTypes = {
     id:PropTypes.number,
   }).isRequired,
 }
+
+
+
+
+
+
+
+
+// export const CastCard = ({ actor }) => {
+//   return (
+//     <div className="movie-card">
+//       <div className="details">
+//         <img 
+//           src={`https://image.tmdb.org/t/p/w200/${actor.profile_path}`} 
+//           alt={actor.name}    
+//         />
+//       </div>
+
+//     </div>
+//   );
+// };
+
+
+
+// export const MovieImage = ({ image }) => {
+//   console.log('Image ID:', image.id);
+//   return (
+//     <div className="movie-card">
+//       <img 
+//         src={imgApi.defaults.baseURL + image.file_path} 
+//         alt={`Imagem ${image.name}`} 
+//       />
+//     </div>
+//   );
+// };
+
+
+
+// export const MovieCredits = ({ credits }) => {
+//   return (
+//     <div className="movie-card">
+//       <div className="details">
+//         <dl>
+//           <dt>{credits.name}</dt>
+//           <dd>{credits.job}</dd>
+//         </dl>
+//       </div>
+
+//     </div>
+//   );
+// };
+
+
+
+// export const CastCardCredits = ({ actor }) => {
+//   const characterName = actor.character;
+
+//   return (
+//     <div className="movie-card">
+//       <img 
+//         src={`https://image.tmdb.org/t/p/w92/${actor.profile_path}`} 
+//         alt={actor.name}    
+//       />
+//       <div>
+//         <p>{actor.name}</p>
+//         <p>as {characterName}</p>
+//       </div>
+
+
+//     </div>
+//   );
+// };
 
 
