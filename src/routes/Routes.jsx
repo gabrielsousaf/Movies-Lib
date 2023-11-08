@@ -11,6 +11,8 @@ import Movie from "../pages/Movie/Movie"
 import Gallery from "../pages/Gallery/Gallery"
 import Search from "../pages/Search/Search"
 import CastAndCrew from "../pages/CastAndCrew/CastAndCrew"
+import Error404 from "../pages/Page404/Page404"
+
 
 const RoutesConfig = () => {
   return(
@@ -25,6 +27,7 @@ const RoutesConfig = () => {
         <Route path='/search' element={<Search />} />
         <Route path="/movie/:id/images" element={<Gallery />} />
         <Route path="/movie/:id/credits" element={<CastAndCrew />} />
+        <Route path='*' element={<Error404/>} />
       </Route>
     </Routes>
   )
