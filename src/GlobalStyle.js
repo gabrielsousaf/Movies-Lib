@@ -12,6 +12,7 @@ const GlobalStyles = createGlobalStyle`
   body{
     background-color: #121212;
     color:#fff;
+    font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   }
 `
 

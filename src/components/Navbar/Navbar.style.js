@@ -117,7 +117,7 @@ export const Nav = styled.nav`
   }
 
   & li a{
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Poppins', 'Open Sans', sans-serif;
     margin: 10px;
     font-size:1.2rem;
     font-weight: 800;

@@ -8,6 +8,7 @@ import { useCarousel } from '../../components/Carousel/CarouselFunction';
 import { carouselSettings, carouselSettings2 } from '../../components/Carousel/Carousel';
 
 import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
+import { Link } from "react-router-dom";
 
 import { useState, useEffect} from "react"
 
@@ -18,8 +19,8 @@ import { fetchInTheaters } from "../../services/Fetches/TheatersMovies"
 
 const Home = () => {
 
-  const { sliderRef, nextSlide, prevSlide, Carousel } = useCarousel(carouselSettings);
-  const { sliderRef: sliderRef2, nextSlide: nextSlide2, prevSlide: prevSlide2, Carousel: Carousel2 } = useCarousel(carouselSettings2);
+  const { nextSlide, prevSlide, Carousel } = useCarousel(carouselSettings);
+  const { nextSlide: nextSlide2, prevSlide: prevSlide2, Carousel: Carousel2 } = useCarousel(carouselSettings2);
 
 
   const [TrendingMovie, setTrendingMovie] = useState([])
@@ -43,6 +44,7 @@ const Home = () => {
         <TextButton>
           <Title>Trending Today</Title>
           <Buttons>
+            <Link className="see-all" to="/trending">See All</Link>
             <Button onClick={prevSlide}> <BiChevronLeft /> </Button>
             <Button onClick={nextSlide}> <BiChevronRight /> </Button>
           </Buttons>
@@ -50,18 +52,25 @@ const Home = () => {
       </Container>
       <Image>
         <Carousel>
-          {TrendingMovie.length === 0 && <p>Loading...</p>}
-              {TrendingMovie.length > 0 &&
-                TrendingMovie.map((movie) => (
-                  <MovieCardBackdrop key={movie.id} movie={movie} />
-                ))}
+          {TrendingMovie.length === 0 && (
+            <div className="skeleton-row">
+              {Array.from({ length: 6 }).map((_, i) => (
+                <div key={i} className="skeleton-card" />
+              ))}
+            </div>
+          )}
+          {TrendingMovie.length > 0 &&
+            TrendingMovie.map((movie) => (
+              <MovieCardBackdrop key={movie.id} movie={movie} />
+            ))}
         </Carousel>
       </Image>
 
       <Container>
         <TextButton>
-          <Title> now in theaters</Title>
+          <Title>Now in Theaters</Title>
           <Buttons>
+            <Link className="see-all" to="/in-theaters">See All</Link>
             <Button onClick={prevSlide2}> <BiChevronLeft /> </Button>
             <Button onClick={nextSlide2}> <BiChevronRight /> </Button>
           </Buttons>
@@ -69,11 +78,17 @@ const Home = () => {
       </Container>
       <Image>
         <Carousel2>
-          {TheatersMovie.length === 0 && <p>Loading...</p>}
-              {TheatersMovie.length > 0 &&
-                TheatersMovie.map((movie) => (
-                  <MovieCard key={movie.id} movie={movie} />
-                ))}
+          {TheatersMovie.length === 0 && (
+            <div className="skeleton-row">
+              {Array.from({ length: 6 }).map((_, i) => (
+                <div key={i} className="skeleton-card" />
+              ))}
+            </div>
+          )}
+          {TheatersMovie.length > 0 &&
+            TheatersMovie.map((movie) => (
+              <MovieCard key={movie.id} movie={movie} />
+            ))}
         </Carousel2>
       </Image>
     </Main>
