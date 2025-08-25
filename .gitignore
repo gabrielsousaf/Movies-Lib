@@ -1,3 +1,11 @@
+# Environment files (do not commit secrets)
+.env
+.env.local
+.env.*.local
+
+# Optional: keep example env tracked
+!.env.example
+
 # Logs
 logs
 *.log
