@@ -5,6 +5,7 @@ import { useState, useEffect } from "react"
 import { MovieCard } from "../../components/MovieCard/MovieCard"
 import { handleNextPage, handlePrevPage } from "../../components/Pagination/Pagination"
 import { fetchInTheaters } from "../../services/Fetches/TheatersMovies"
+import { Loader } from "../../components/Loader/Loader";
 
 import { BiRightArrowAlt, BiLeftArrowAlt } from 'react-icons/bi'
 
@@ -12,6 +13,7 @@ const InTheaters = () => {
   const [ InTheatersMovie, setInTheatersMovie ] =useState([]);
   const [ currentPage, setCurrentPage ] = useState(1);
   const [ totalPages, setTotalPages ] = useState(1);
+  const [ isLoading, setIsLoading ] = useState(true);
 
 
   useEffect(() => {
@@ -19,17 +21,19 @@ const InTheaters = () => {
   }, [currentPage]);
 
   useEffect(() => {
+    setIsLoading(true);
     fetchInTheaters(currentPage).then(({ results, total_pages}) => {
       setInTheatersMovie(results)
       setTotalPages(total_pages);
-    }, [currentPage])
-  })
+    }).finally(() => setIsLoading(false));
+  }, [currentPage])
 
   return (
     <Main>
+      {isLoading && <Loader />}
       <Title>In Theaters:</Title>
       <Container>
-        { InTheatersMovie.length === 0 && <p>Loading...</p>}
+        { InTheatersMovie.length === 0 && !isLoading && <p>Sem resultados.</p>}
           { InTheatersMovie.length > 0 &&
             InTheatersMovie.map((movie) => 
             <MovieCard key={movie.id} movie={movie} />

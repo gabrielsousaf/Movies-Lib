@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { MovieCard } from "../../components/MovieCard/MovieCard";
 import { searchMovies } from "../../services/Fetches/SearchMovies";
+import { Loader } from "../../components/Loader/Loader";
 
 
 
@@ -40,10 +41,9 @@ const Search = () => {
     <Main>
       <Helmet title={`Search Results for: ${searchQuery }`}/>
       <Title>Search Results for: {searchQuery} </Title>
+      {loading && <Loader />}
       <Container>
-        {loading ? (
-          <p>Loading...</p>
-        ) : (
+        {!loading && (
           movies &&
           movies.length > 0 &&
           movies.map((movie) => <MovieCard key={movie.id} movie={movie} />)

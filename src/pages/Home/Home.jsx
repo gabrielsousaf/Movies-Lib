@@ -16,6 +16,7 @@ import { MovieCardBackdrop } from "../../components/MovieCard/MovieCardBackdrop"
 import { MovieCard } from '../../components/MovieCard/MovieCard';
 import { fetchTrendingMovies } from "../../services/Fetches/TrendingMovies"
 import { fetchInTheaters } from "../../services/Fetches/TheatersMovies"
+import { Loader } from "../../components/Loader/Loader";
 
 const Home = () => {
 
@@ -25,20 +26,27 @@ const Home = () => {
 
   const [TrendingMovie, setTrendingMovie] = useState([])
   const [TheatersMovie, setTheatersMovie] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
 
 
   useEffect(() => {
-    fetchTrendingMovies().then((TrendingMovie) => {
-      setTrendingMovie(TrendingMovie.results)
+    let mounted = true;
+    Promise.all([
+      fetchTrendingMovies(),
+      fetchInTheaters(),
+    ]).then(([trending, theaters]) => {
+      if (!mounted) return;
+      setTrendingMovie(trending.results || []);
+      setTheatersMovie(theaters.results || []);
+    }).finally(() => {
+      if (mounted) setIsLoading(false);
     });
-
-    fetchInTheaters().then((TheatersMovie) => {
-      setTheatersMovie(TheatersMovie.results)
-    })
+    return () => { mounted = false };
   }, [])
 
   return (
     <Main>
+      {isLoading && <Loader />}
       <Helmet title='Home'/>
       <Container>
         <TextButton>

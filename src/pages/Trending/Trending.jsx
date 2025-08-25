@@ -7,6 +7,7 @@ import { useState, useEffect } from "react"
 import { MovieCard } from "../../components/MovieCard/MovieCard"
 import { handleNextPage, handlePrevPage } from "../../components/Pagination/Pagination"
 import { fetchTrendingMovies } from "../../services/Fetches/TrendingMovies"
+import { Loader } from "../../components/Loader/Loader";
 
 import { BiRightArrowAlt, BiLeftArrowAlt } from 'react-icons/bi'
 
@@ -14,6 +15,7 @@ const TopRated = () => {
   const [ TrendingMovie, setTrendingMovie ] =useState([]);
   const [ currentPage, setCurrentPage ] = useState(1);
   const [ totalPages, setTotalPages ] = useState(1);
+  const [ isLoading, setIsLoading ] = useState(true);
 
 
   useEffect(() => {
@@ -21,18 +23,20 @@ const TopRated = () => {
   }, [currentPage]);
 
   useEffect(() => {
+    setIsLoading(true);
     fetchTrendingMovies(currentPage).then(({ results, total_pages}) => {
       setTrendingMovie(results)
       setTotalPages(total_pages);
-    }, [currentPage])
-  })
+    }).finally(() => setIsLoading(false));
+  }, [currentPage])
 
   return (
     <Main>
+      {isLoading && <Loader />}
       <Helmet title='Trending'/>
       <Title>Trending:</Title>
       <Container>
-        {TrendingMovie.length === 0 && <p>Loading...</p>}
+        {TrendingMovie.length === 0 && !isLoading && <p>Sem resultados.</p>}
           {TrendingMovie.length > 0 &&
             TrendingMovie.map((movie) => 
             <MovieCard key={movie.id} movie={movie} />
