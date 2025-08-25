@@ -1,13 +1,15 @@
 import { Header, HeaderButton, Nav, Form} from './Navbar.style'
 import { useEffect, useState } from "react"
-import { NavLink, useNavigate } from "react-router-dom"
+import { NavLink, useNavigate, useLocation } from "react-router-dom"
+import { FiSearch } from "react-icons/fi"
+import { navLinks } from "../../constants/navLinks"
 import { BiAlignJustify } from "react-icons/bi"
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [search, setSearch] = useState("")
   const navigate = useNavigate();
-
+  const location = useLocation();
 
   useEffect(() => {
     const handleScrollToClose = () => {
@@ -21,6 +23,10 @@ const Navbar = () => {
       window.removeEventListener('scroll', handleScrollToClose);
     }
   }, [showMenu]);
+
+  useEffect(() => {
+    setShowMenu(false);
+  }, [location.pathname]);
 
 
   const handleMenuToggle = () => {
@@ -41,59 +47,42 @@ const Navbar = () => {
 
   return (
     <Header>
-      <HeaderButton className={`hamburguer ${showMenu ? 'active' : ''}`} onClick={handleMenuToggle}>
+      <HeaderButton
+        className={`hamburguer ${showMenu ? 'active' : ''}`}
+        onClick={handleMenuToggle}
+        aria-label={showMenu ? 'Fechar menu de navegação' : 'Abrir menu de navegação'}
+        aria-expanded={showMenu}
+        aria-controls="navbar"
+      >
         <BiAlignJustify className="hamburguer-line" />
       </HeaderButton>
 
-      <Nav id='navbar' className={showMenu ? 'show' : ''}>
-        <h2>
-          <NavLink
-            to="/"
-            activeClassName="active"
-            onClick={handleMenuItemClick}>
-            Home
-          </NavLink>
-        </h2>
-        <h2>
-          <NavLink 
-            to="/top-rated"
-            activeClassName="active"
-            onClick={handleMenuItemClick}>
-            Top Rated
-          </NavLink>
-        </h2>
-        <h2>
-          <NavLink
-            to="/popular"
-            activeClassName="active"
-            onClick={handleMenuItemClick}>
-            Popular
-          </NavLink>
-        </h2>
-        <h2>
-          <NavLink
-            to="/trending"
-            activeClassName="active"
-            onClick={handleMenuItemClick}>
-            Trending
-          </NavLink>
-        </h2>
-        <h2>
-          <NavLink 
-            to="/in-theaters"
-            activeClassName="active"
-            onClick={handleMenuItemClick}>
-            IN-THEATERS
-          </NavLink>
-        </h2>
+      <Nav id='navbar' className={showMenu ? 'show' : ''} role="navigation" aria-label="Navegação principal">
+        <ul>
+          {navLinks.map(link => (
+            <li key={link.to}>
+              <NavLink
+                to={link.to}
+                className={({ isActive }) => isActive ? 'active' : ''}
+                onClick={handleMenuItemClick}
+              >
+                {link.label}
+              </NavLink>
+            </li>
+          ))}
+        </ul>
       </Nav>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} role="search" aria-label="Pesquisar séries">
         <input
           type='text'
-          placeholder='Search Series...'
+          placeholder='Pesquisar séries...'
           onChange={(e) => setSearch(e.target.value)}
-          value={search} 
+          value={search}
+          aria-label='Campo de pesquisa'
         />
+        <button type="submit" aria-label="Buscar">
+          <FiSearch size={18} />
+        </button>
       </Form>
     </Header>
   )
