@@ -118,6 +118,19 @@ export const Image = styled.div`
     height: 100%;
     margin: 1rem;
     position:relative;
+    overflow: hidden;
+    background: #262626;
+    border: 1px solid #ffffff12;
+    border-radius: 1rem;
+    box-shadow: 0 6px 18px rgba(0,0,0,.22);
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease, background .25s ease;
+
+    &:hover{
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px rgba(0,0,0,.35);
+      border-color: #ffffff24;
+      background: #2b2b2b;
+    }
 
     @media (max-width: 767px) {
       margin: 0rem;
@@ -127,6 +140,9 @@ export const Image = styled.div`
   & a{
     justify-content: center;
     text-align: center;
+    display: block;
+    width: 100%;
+    height: 100%;
   }
   
   & img{
@@ -195,6 +211,7 @@ export const Image = styled.div`
     font-weight: 700;
     color: #fff;
     font-family: 'Source Sans 3', sans-serif;
+    padding: 1rem;
   }
 
   /* Skeletons */
