@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { imgApi } from "../../services/api/api";
 import PropTypes from "prop-types";
+import { useMemo } from "react";
+import { getProgressStyles } from "../../utils/getProgressStyles";
 
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
@@ -10,68 +12,34 @@ import { enUS } from 'date-fns/locale';
 
 
 export const MovieCard = ({ movie }) => {
-  const imageUrl = imgApi.defaults.baseURL + movie.poster_path;
+  const defaultTitle = movie.title || movie.name || movie.original_title || "Untitled";
 
-  let formattedDate = "";
-  if (movie.release_date) {
-    formattedDate = format(new Date(movie.release_date), 'LLL d, yyyy', { locale: enUS });
-  }
+  const imageUrl = useMemo(() => {
+    const base = imgApi.defaults.baseURL || "";
+    return movie.poster_path ? base + movie.poster_path : "";
+  }, [movie.poster_path]);
 
-  const notePercentage = Math.round((movie.vote_average / 10) * 100) ;
-
-  const getColorStyles = () => {
-    if (notePercentage < 40) {
-      return {
-        trail: {
-          stroke: '#571435', 
-        },
-        path: {
-          stroke: "#C9225A",
-        },
-        text: {
-          fill: "#FFF",
-          fontSize: '2rem',
-          fontWeight: 'bold',
-        },     
-      };
-    } else if (notePercentage < 70) {
-      return {
-        trail: {
-          stroke: '#423D0F',
-        },
-        path: {
-          stroke: "#CED130",
-        },
-        text: {
-          fill: "#FFF",
-          fontSize: '2rem',
-          fontWeight: 'bold',
-        },
-      };
-    } else {
-      return {
-        trail: {
-          stroke: '#204529',
-        },
-        path: {
-          stroke: "#21D07A",
-        },
-        text: {
-          fill: "#FFF",
-          fontSize: '2rem',
-          fontWeight: 'bold',
-        },
-      }
+  const formattedDate = useMemo(() => {
+    if (!movie.release_date) return "";
+    try {
+      return format(new Date(movie.release_date), 'LLL d, yyyy', { locale: enUS });
+    } catch {
+      return String(movie.release_date);
     }
-  };
+  }, [movie.release_date]);
 
-  const colorStyles = getColorStyles();
+  const notePercentage = useMemo(() => {
+    const avg = typeof movie.vote_average === 'number' ? movie.vote_average : 0;
+    return Math.round((avg / 10) * 100);
+  }, [movie.vote_average]);
+
+  const colorStyles = useMemo(() => getProgressStyles(notePercentage), [notePercentage]);
 
 
   return (
     <div className="series-card">
       <Link className="details" to={`/movie/${movie.id}`}>
-        <img src={imageUrl} alt={movie.original_title} />
+        <img src={imageUrl} alt={movie.original_title || defaultTitle} />
         <div className="DateProgress">
           <p>{formattedDate}</p>
           <div className="progressbar" style={{ width: "50px" }}>
@@ -82,7 +50,7 @@ export const MovieCard = ({ movie }) => {
             />
           </div>
         </div>
-        <h2 className="series-title">{movie.title}</h2>
+        <h2 className="series-title">{defaultTitle}</h2>
       </Link>
     </div>
   );

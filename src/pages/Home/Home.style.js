@@ -149,24 +149,39 @@ export const Image = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: .5rem .75rem;
+    border-radius: 1rem;
+    background: #14141480;
+    backdrop-filter: blur(8px) saturate(140%);
+    -webkit-backdrop-filter: blur(8px) saturate(140%);
+    border: 1px solid #ffffff1c;
+    box-shadow: 0 6px 18px rgba(0,0,0,.25);
     }
 
   & .progressbar{
     margin-right: 10px;
-    background-color: #313131;
+    background-color: #1f1f1f;
     border-radius:100%;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,.28);
   }
 
   & p{
     margin-left: 10px;
-    color: white;
-    border-radius: 0.5rem;
-    padding: 0.2rem 0.5rem;
-    font-size: 1.1rem;
-    font-weight: bold;
+    color: #f8f8f8;
+    border-radius: 999px;
+    padding: 0.25rem .75rem;
+    font-size: 1rem;
+    font-weight: 700;
     display:flex;
     align-items: center;
-    background-color: #313131;
+    background-color: #2a2a2a99;
+    border: 1px solid #ffffff1a;
+    box-shadow: 0 2px 8px rgba(0,0,0,.2);
   }
 
 
