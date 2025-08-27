@@ -103,6 +103,10 @@ export const Button = styled.span`
   &:active{
     transform: scale(0.98);
   }
+
+  @media(max-width:767px){
+    display: none;
+  }
 `
 
 export const Image = styled.div`
