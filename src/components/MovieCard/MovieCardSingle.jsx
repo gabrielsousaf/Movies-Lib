@@ -28,8 +28,9 @@ export const MovieCardSingle = ({ movie }) => {
 
           <div className="content-info">
             <div className="title">
-              <h2> {movie.title} <span>      
-                ({firstAirDate.getFullYear()}) </span> </h2>
+              <h2> {movie.title} 
+                <span> ({firstAirDate.getFullYear()}) </span> 
+              </h2>
             </div>
 
             <div className="info">

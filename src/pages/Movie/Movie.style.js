@@ -8,18 +8,29 @@ export const Main = styled.main`
   & .poster{
     position: absolute;
     width: 100%;
-    height: auto;
+    height: 450px;
     left: 50%;
     top: 0;
     z-index: -1;
     overflow: hidden;
     transform: translate(-50%);
+    border-radius: 20px;
+  }
+
+  & .poster::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,4), rgba(0,0,0,0.9));
   }
 
   & .poster img{
     position: relative;
     width: 100%;
-    height: 10%;
+    height: 100%;
     object-fit: cover;
     border-radius: 20px;
   }
@@ -28,15 +39,18 @@ export const Main = styled.main`
     position: relative;
     display: flex;
     justify-content: center;
-    padding:0px 3rem;
+    padding:0px 2rem;
   }
 
   & .card-info .container-serie{
-    margin-top: 300px;
+    margin-top: 100px;
     position: relative;
     z-index: 2;
-    padding: 1rem;
-    background-color: #3b3b3b;
+    padding: 2rem;
+    background-color: rgba(30,30,30,0.7);
+    box-shadow: 0 8px 24px rgba(255,255,255,.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
     display: flex;
     border-radius: 16px;
 
@@ -82,7 +96,8 @@ export const Main = styled.main`
   & .card-info .container-serie .content-info .title h2{
     text-transform: uppercase;
     font-family: Source-Sans-Pro, sans-serif;
-    font-size: 2.5rem;
+    font-size: 2.8rem;
+    letter-spacing: 1px;
     font-weight: 900;
     color: #fff;
     display: flex;
@@ -97,6 +112,12 @@ export const Main = styled.main`
   & .card-info .container-serie .content-info .title h2 span{ 
     margin-left: 9px;
     opacity: 0.8;
+    color: #fff;
+    font-weight: 400;
+
+    @media(max-width:1024px) {
+      display: none;
+    }
   }
 
 
@@ -129,6 +150,7 @@ export const Main = styled.main`
 
   & .card-info .container-serie .content-info .info ul li svg {
     margin-right: 0.5rem;
+    color: #ffd700;
   }
 
   & hr{
@@ -320,23 +342,27 @@ export const Title = styled.h2`
 `
 
 export const Button = styled.button`
-  background-color: #3b3b3b;
-  color: #fff;
-  padding: 0.5rem 0.9rem;
-  border: none;
-  text-decoration: none;
-  border-radius: 1rem;
-  font-size: 1em;
-  box-shadow: #00000029 0 3px 6px, #0000003b 0 3px 6px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  cursor: pointer;
-  transition: .3s all ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.35rem 0.8rem;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    color: #fff;
+    background: #2d2d2d;
+    transition: background .2s ease, transform .2s ease, box-shadow .2s ease, color .2s ease;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
 
-  &:hover{
-    background-color:#5A189A;
-  }
+    &:hover{
+      background: #3a3a3a;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 16px rgba(0,0,0,.28);
+      color: #f2e7ff;
+    }
 `
 
 export const Buttons = styled.div`
