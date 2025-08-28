@@ -53,7 +53,7 @@ export const carouselSettings2 = {
 export const carouselSettingsCast = {
   dots: true,
   infinite: true,
-  arrows: true,
+  arrows: false,
   speed: 500,
   slidesToShow: 5,
   slidesToScroll: 5,
@@ -80,7 +80,7 @@ export const carouselSettingsCast = {
 export const carouselSettingsRecomended = {
   dots: true,
   infinite: true,
-  arrows: true,
+  arrows: false,
   speed: 500,
   slidesToShow: 5,
   slidesToScroll: 5,
@@ -106,7 +106,7 @@ export const carouselSettingsRecomended = {
 export const carouselSettingsGallery = {
   dots: true,
   infinite: true,
-  arrows: true,
+  arrows: false,
   speed: 500,
   slidesToShow: 3,
   slidesToScroll: 3,

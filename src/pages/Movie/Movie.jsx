@@ -8,6 +8,7 @@ import { MovieCardSingle } from '../../components/MovieCard/MovieCardSingle';
 import { MovieCastAndCrew } from '../../components/MovieCard/MovieCardCastCrew';
 import { MovieCardRecommend } from '../../components/MovieCard/MovieCardRecommend';
 import { MovieCardGallery } from '../../components/MovieCard/MovieCardGallery';
+
 import { fetchMovieDetails } from '../../services/Fetches/Movie';
 import { fetchMovieCastAndCrew } from '../../services/Fetches/MovieCastAndCrew';
 import { fetchRecommendedMovies } from '../../services/Fetches/RecommendedMovies';
@@ -30,6 +31,23 @@ const Movie = () => {
   const { sliderRef, nextSlide, prevSlide, Carousel } = useCarousel(carouselSettingsCast);
   const { sliderRef: recommendSliderRef, nextSlide: nextRecommendSlide, prevSlide: prevRecommendSlide, Carousel: RecommendCarousel } = useCarousel(carouselSettingsRecomended);
   const { sliderRef: GallerySliderRef, nextSlide: nextGallerySlide, prevSlide: prevGallerySlide, Carousel: GalleryCarousel } = useCarousel(carouselSettingsGallery);
+
+  const [isLoading, setIsLoading] = useState(true)
+  
+  useEffect(() => {
+    if (!id) return;
+  
+    fetchMovieDetails(id).then((movieData) => setMovieCast(movieData));
+  
+    fetchMovieCastAndCrew(id).then((cast) => setCast(cast));
+  
+    fetchRecommendedMovies(id).then((recommend) => {
+      setMovieRecommend(recommend.results || []);
+    });
+  
+    fetchGallery(id).then((images) => setGallery(images.backdrops || []));
+  }, [id]);
+  
 
   useEffect(() => {
     fetchMovieDetails(id).then((tvShowData) => {
@@ -56,11 +74,19 @@ const Movie = () => {
     });
   }, [id]);
 
+
   return (
     <Main>
       <Container>
-        {MovieCast=== null && <p>Loading...</p>}
-        {MovieCast !== null && <MovieCardSingle movie={MovieCast} />}
+      {MovieCast === null ? (
+    <div className="skeleton-row">
+      {Array.from({ length: 1 }).map((_, i) => (
+        <div key={i} className="skeleton-card" style={{ height: '450px' }} />
+      ))}
+    </div>
+  ) : (
+    <MovieCardSingle movie={MovieCast} />
+  )}
       </Container>
 
 
@@ -68,18 +94,19 @@ const Movie = () => {
       <Container>
         <TitleButton>
           <Title>Cast</Title>
-          <Link to={`/movie/${id}/credits`}>
-            <Button>See full cast & crew</Button>
-          </Link>
+          <Buttons>
+            <Link className="see-all" to={`/movie/${id}/credits`}>See All</Link>
+            <Button onClick={prevSlide}> <BiChevronLeft /> </Button>
+            <Button onClick={nextSlide}> <BiChevronRight /> </Button>
+          </Buttons>
         </TitleButton>
-
-        <RecommendCarousel>
+        <Carousel>
           {Cast.cast &&
             Cast.cast.map((actor, index) => (
               <MovieCastAndCrew actor={actor} key={index} />
             ))
           }
-        </RecommendCarousel>
+        </Carousel>
       </Container>
 
 
@@ -88,12 +115,11 @@ const Movie = () => {
         <TitleButton>
           <Title>Recommended</Title>
           <Buttons>
-            <Span onClick={prevSlide}> <BiChevronLeft /> </Span>
-            <Span onClick={nextSlide} > <BiChevronRight /> </Span>
+            <Button onClick={prevRecommendSlide}> <BiChevronLeft /> </Button>
+            <Button onClick={nextRecommendSlide} > <BiChevronRight /> </Button>
           </Buttons>
         </TitleButton>
-
-        <Carousel>
+        <RecommendCarousel>
           {MovieRecommend.length === 0 ? (
             <p>Loading</p>
           ) : (
@@ -101,15 +127,19 @@ const Movie = () => {
               <MovieCardRecommend key={movie.id} movie={movie} />
             ))
           )}
-        </Carousel>
+        </RecommendCarousel>
       </Container>
 
       <Container>
         <TitleButton>
           <Title>Gallery</Title>
-          <Link to={`/movie/${id}/images`}>
-            <Button>See all Images</Button>
-          </Link>
+          <Buttons>
+            <Link to={`/movie/${id}/images`} className='see-all'>
+              See All
+            </Link>
+            <Button onClick={prevGallerySlide}> <BiChevronLeft /> </Button>
+            <Button onClick={nextGallerySlide}> <BiChevronRight /> </Button>
+          </Buttons>
         </TitleButton>
 
         <GalleryCarousel>
