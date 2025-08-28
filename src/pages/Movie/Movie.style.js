@@ -199,11 +199,16 @@ export const Container = styled.div`
 
   & .cast-member{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100%;
-    margin: 1rem;
+    flex-directon: column;
+    align-items:center;
+    text-align:center;
+    background: #262626;
+    border: 1px solid #ffffff12;
+    border-radius: 1rem;
+    box-shadow: 0 6px 18px rgba(0,0,0,.22);
+    padding: 1rem;
+    margin:1rem;
+    transition: transform .25s ease, box-shadow .25s ease;
 
     @media(max-width:767px) {
       margin:0rem;
@@ -211,29 +216,38 @@ export const Container = styled.div`
   }
   
   & .cast-member img{
-    width: 100%;
-    border-radius: 1rem;
-    transition: .3s all ease;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: .75rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,.25);
+    transition: transform .25s ease;
+
+    &:hover{
+      transform: scale(1.05);
+    }
   }
 
 
   & .cast-member p{
-    display: flex;
-    justify-content: center;
-    text-align:center;
-    align-items: center;
-    margin-top:.5rem;
-    font-size: 1rem;
-    font-family: Open Sans,sans-serif;
-    font-weight: 400;
-
+    margin: .2rem 0;
+    font-size: #f1f1f1;
+    line-height: 1.3;
+    font-family: 'Roboto', sans-serif; 
   }
 
+  & .cast-member p:first-of-type {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #fff;
+  }
 
-
-
-
-
+  & .cast-member p:last-of-type {
+    font-size: .85rem;
+    opacity: .85;
+    font-style: italic;
+  }
 
   & .series-card{
     display: flex;
